@@ -5,8 +5,12 @@ function index (req, res) {
 }
 
 function displayCatalog(req, res){
-  res.render("animes/catalog", {
-    title: "Catalog Page"
+  Anime.find({})
+  .then(animes => {
+    res.render("animes/catalog", {
+      animes,
+      title: "Catalog Page"
+    });
   });
 }
 

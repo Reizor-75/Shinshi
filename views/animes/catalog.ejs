@@ -3,5 +3,24 @@
 
 <main>
   <h1><%= title %></h1>
+  <div class="card-container">
+    <% if (animes.length) { %>
+      <% array.forEach(anime => { %>
+        <a class="text-decoration-none" href="">
+          <div class="card">
+            <img 
+              src="<%= anime.imageURL %>" 
+              alt="<%= anime.title %>'s cover image"
+            >
+            <div class="card-body">
+              <h1 class="card-title"><%= anime.title %></h1>
+              <div><%= anime.rating %></div>
+            </div>
+          </div>
+        </a>
+        <hr/>
+      <% }) %>
+    <% } %>
+  </div>
 </main>
 <%- include('../partials/footer') %>
