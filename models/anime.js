@@ -18,7 +18,7 @@ const animeSchema = new Schema({
   imageURL: String,
   genre: {
     type: String,
-    enum: ['G', 'PG', 'PG-13', 'R'],
+    enum: ['action', 'comedy', 'fantasy', 'romance'],
   },
   rating: Number,
   ongoing: {

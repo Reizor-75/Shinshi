@@ -14,7 +14,14 @@ function displayCatalog(req, res){
   });
 }
 
+function newAnime(req, res){
+  res.render('animes/new', {
+    title: 'Add New Anime'
+  })
+}
+
 export {
   index,
-  displayCatalog
+  displayCatalog,
+  newAnime as new,
 }

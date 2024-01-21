@@ -7,6 +7,8 @@ const router = Router()
 router.get('/', animesCtrl.index)
 // GET http://localhost:3000/anime/catalog
 router.get('/catalog', animesCtrl.displayCatalog)
+// GET http://localhost:3000/anime/new
+router.get('/new', animesCtrl.new)
 
 
 export {
