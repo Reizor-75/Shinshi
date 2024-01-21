@@ -5,7 +5,9 @@ function index (req, res) {
 }
 
 function displayCatalog(req, res){
-  res.send("Anime Catalog")
+  res.render("animes/catalog", {
+    title: "Catalog Page"
+  });
 }
 
 export {
