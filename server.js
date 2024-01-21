@@ -19,7 +19,7 @@ import './config/database.js'
 import'./config/passport.js'
 
 // import routes
-import { router as indexRouter } from './routes/index.js'
+// import { router as indexRouter } from './routes/animes.js'
 import { router as authRouter } from './routes/auth.js'
 import { router as animesRouter } from './routes/animes.js'
 
@@ -60,9 +60,9 @@ app.use(passport.session())
 app.use(passDataToView)
 
 // mount imported routes
-app.use('/', indexRouter)
+// app.use('/', indexRouter)
 app.use('/auth', authRouter)
-app.use('/animes', animesRouter)
+app.use('/', animesRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

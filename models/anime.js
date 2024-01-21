@@ -12,7 +12,7 @@ const reviewSchema = new Schema({
 const animeSchema = new Schema({
   title:{
     type:String,
-    require: true
+    required: true
   },
   releaseYear: Date,
   imageURL: String,
@@ -23,7 +23,6 @@ const animeSchema = new Schema({
   rating: Number,
   ongoing: {
     tpye: Boolean,
-    require: true
   },
   reviews: [reviewSchema],
   // studio: {
