@@ -26,12 +26,23 @@ function newAnime(req, res){
 
 function create(req, res){
   req.body.ongiong = !!req.body.ongiong;  
-  for (let key in req.body) {
-    if (req.body[key] === '') delete req.body[key];
-  }
   Anime.create(req.body)
-  .then(show => {
+  .then(() => {
     res.redirect(`/catalog`)
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  });
+}
+
+function show(req, res){
+  Anime.findById(req.params.animeId)
+  .then(anime =>{
+    res.render('animes/show', {
+      anime,
+      title: 'Show Detail', 
+    })
   })
   .catch(err => {
     console.log(err)
@@ -44,4 +55,5 @@ export {
   displayCatalog,
   newAnime as new,
   create,
+  show,
 }

@@ -1,0 +1,44 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+    <img 
+      src="<%= anime.imageURL %>" 
+      alt="<%= anime.title %>'s cover image"
+      width="75%"
+    >
+    <div class="title-section">
+      <h1 class="card-title"><%= anime.title %></h1>
+      <div>Rating: <%= anime.rating %> </div>
+    </div>
+    <div class="2nd-section">
+      <!-- <div>Studio</div> -->
+      <div>Ongoing: <%= anime.ongoing %></div>
+    </div>
+    <div class="3rd-section">Released: <%= anime.releaseYear.getFullYear()+1%> </div>
+    <div class="4nd-section">Genre: <%= anime.genre %></div>
+    
+    <!-- insert cast -->
+
+    <div class="review-section"> 
+      <h1 class="review-title">Reviews</h1>
+      <% if (user) { %>
+      <button>Add Review</button>
+      <% } %>
+
+      <% if (!anime.reviews.length) { %>
+        <h2>No Reviews</h2>
+      <% } else { %>
+        <% anime.reviews.forEach(review => { %>
+          <div class="review-headline"><% review.reviewTitle %></div>
+          <div class="review-body">
+            <p class="review-text"><% review.content %></p>
+            <div class="review-rating"><% review.rating %></div>
+          </div>          
+          <div class="username"><% review.user %></div>
+        <% }) %>
+      <% } %>
+    </div>
+</main>
+
+<%- include('../partials/footer') %>

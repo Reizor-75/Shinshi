@@ -9,6 +9,9 @@ router.get('/', animesCtrl.index)
 router.get('/catalog', animesCtrl.displayCatalog)
 // GET http://localhost:3000/new
 router.get('/new', animesCtrl.new)
+// GET http://localhost:3000/catalog/:animeId
+router.get('/catalog/:animeId', animesCtrl.show)
+
 // POST http://localhost:3000/catalog
 router.post('/catalog', animesCtrl.create)
 
