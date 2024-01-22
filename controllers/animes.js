@@ -51,10 +51,13 @@ function show(req, res){
   });
 }
 
-function createReview(req, res){
+function createReview(req, res){  
   Anime.findById(req.params.animeId)
   .then(anime =>{
-    anime.reviews.push(req.body)
+    if(!req.body.reviewTitle) req.body.reviewTitle = "";
+    if(!req.body.content) req.body.content = "No Comment";
+    req.body.user = req.user.profile._id;
+    anime.reviews.push(req.body);
     anime.save()
     .then(() =>{
       res.redirect(`/catalog/${anime._id}`)
