@@ -73,6 +73,27 @@ function createReview(req, res){
   });
 }
 
+function deleteReview(req, res){
+  Anime.findById(req.params.animeId)
+  .then(anime =>{
+    const review = anime.reviews.id(req.params.reviewId);
+    if(review.user.equals(req.user.profile._id)){
+      anime.reviews.remove(review);
+      anime.save()
+      .then(()=>{        
+        res.redirect(`/catalog/${anime._id}`)
+      })
+    }
+    else{
+      throw new Error ('🚫 Not authorized 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  });
+}
+
 export {
   index,
   displayCatalog,
@@ -80,4 +101,5 @@ export {
   create,
   show,
   createReview,
+  deleteReview as delete
 }

@@ -16,6 +16,8 @@ router.post('/catalog/:animeId/reviews', animesCtrl.createReview)
 
 // POST http://localhost:3000/catalog
 router.post('/catalog', animesCtrl.create)
+// DELETE http://localhost:3000/catalog/:animeId/reviews
+router.delete('/catalog/:animeId/reviews/:reviewId', animesCtrl.delete)
 
 
 export {

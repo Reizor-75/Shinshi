@@ -22,8 +22,10 @@
     
     <!-- insert cast -->
 
+    <!-- reviews -->
     <div class="review-header">
       <div class="review-title">Reviews</div>
+      <!-- add reviews -->
       <% if (user) { %>
         <button popovertarget="review-popup" class="review-button">Add Review</button>
         <div popover="manual" id="review-popup">
@@ -43,7 +45,7 @@
         </div>
       <% } %>
     </div>
-
+    <!-- display reviews -->
     <div class="review-container"> 
       <% if (!anime.reviews.length) { %>
         <h2>No Reviews</h2>
@@ -57,6 +59,10 @@
             </div>          
             <div class="username"><%= review.user %></div>
           </div>
+          <% if (review.user.equals(user?.profile._id)) { %>  
+            <form action="<%= anime._id %>/reviews/<%= review._id %>/?_method=DELETE" method="POST">
+              <button class="btn edit-btn">🗑️</button>
+          <% } %>
           <hr />
         <% }) %>
       <% } %>
