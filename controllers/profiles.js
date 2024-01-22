@@ -32,7 +32,6 @@ function reviews(req, res){
   Profile.findById(req.user.profile._id)
   .populate("animeReviews")
   .then(profile =>{
-    console.log(`😸 ${profile.animeReviews}`)
     res.render("profiles/reviews", {
       profile,
       title:` Your Reviews`
@@ -44,8 +43,13 @@ function reviews(req, res){
   });
 }
 
+function updateReview(req, res){
+  console.log("😺")
+}
+
 export {
   index,
   watchList,
-  reviews
+  reviews,
+  updateReview
 }
