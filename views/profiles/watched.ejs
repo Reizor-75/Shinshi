@@ -5,7 +5,10 @@
   <div>
     <div class="header">
       <h1><%= title %></h1>
-      <button> Add Anime</button>
+      <form action="" method="" >
+        <input type="search" name="title" placeholder="Search Anime" id=""/>
+        <button type="submit"> Add Anime</button>
+      </form>
     </div>
     <div class="card-container">
       <% if (!profile.watchedList.length) { %>
