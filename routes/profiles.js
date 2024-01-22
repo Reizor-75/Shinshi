@@ -11,7 +11,7 @@ router.get('/watched', isLoggedIn, profilesCtrl.watchList)
 // GET localhost:3000/profiles/reviews
 router.get('/reviews', isLoggedIn, profilesCtrl.reviews)
 // PUT localhost:3000/profiles/reviews
-router.put('/reviews/:reviewId', isLoggedIn, profilesCtrl.updateReview)
+router.put('/reviews/:animeId/:reviewId', isLoggedIn, profilesCtrl.updateReview)
 
 export {
   router
