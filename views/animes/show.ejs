@@ -35,10 +35,10 @@
             method="POST"
           >
             <div class="">
-              <input type="text" placeholder="Headline" class="headline-input">
-              <input type="number" placeholder="rating" class="rating-input">
+              <input type="text" name="reviewTitle" placeholder="Headline" class="headline-input">
+              <input type="number" name="rating" placeholder="rating" class="rating-input">
             </div>
-            <textarea name="content" id="content-textarea" placeholder="Write review here"></textarea>
+            <textarea name="content" placeholder="Write review here" id="content-textarea"></textarea>
             <button type="submit"> Add</button>
           </form>
           <button class="close-button">❌</button>
@@ -52,7 +52,7 @@
       <% } else { %>
         <% anime.reviews.forEach(review => { %>
           <div class="review">
-            <div class="review-headline"><%= review.reviewTitle %></div>
+            <div class="review-headline"><%= review.reviewTitle%></div>
             <div class="review-body">
               <p class="review-text"><%= review.content %></p>
               <div class="review-rating"><%= review.rating %></div>
