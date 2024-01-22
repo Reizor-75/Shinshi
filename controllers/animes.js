@@ -1,5 +1,6 @@
 import { Anime } from "../models/anime.js"
 import { Profile } from "../models/profile.js";
+import { reviews } from "./profiles.js";
 
 function index (req, res) {
   res.render('index', { title: 'Home Page' })
@@ -40,6 +41,7 @@ function create(req, res){
 
 function show(req, res){
   Anime.findById(req.params.animeId)
+  .populate("reviews.user")
   .then(anime =>{
     res.render('animes/show', {
       anime,
@@ -61,7 +63,18 @@ function createReview(req, res){
     anime.reviews.push(req.body);
     anime.save()
     .then(() =>{
-      res.redirect(`/catalog/${anime._id}`)   
+      Profile.findById(req.user.profile._id)
+      .then(profile =>{
+        profile.animeReviews.push(anime.reviews[anime.reviews.length-1]._id);
+        profile.save()
+        .then(()=>{
+          res.redirect(`/catalog/${anime._id}`)   
+        })
+        .catch(err => {
+          console.log("failed anime review push")
+          res.redirect('/')
+        })
+      })
     })
     .catch(err => {
       console.log(err)
