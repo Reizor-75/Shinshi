@@ -6,6 +6,8 @@ const router = Router()
 
 // GET localhost:3000/profiles
 router.get('/', isLoggedIn, profilesCtrl.index)
+// GET localhost:3000/profiles/wacthed
+router.get('/watched', isLoggedIn, profilesCtrl.watchList)
 
 export {
   router
