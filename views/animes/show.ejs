@@ -73,7 +73,7 @@
                   <input type="text" name="reviewTitle" value="<%= review.reviewTitle %>" class="headline-input">
                   <input type="number" name="rating" value="<%= review.rating %>" class="rating-input">
                 </div>
-                <textarea name="content" value="<%= review.content %>" id="content-textarea"></textarea>
+                <textarea name="content" id="content-textarea"><%= review.content%></textarea>
                 <button type="submit">Update</button>
               </form>
             </div>

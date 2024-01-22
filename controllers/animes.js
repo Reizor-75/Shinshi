@@ -113,7 +113,23 @@ function deleteReview(req, res){
 }
 
 function updateReview(req, res){
-  console.log("💩")
+  Anime.findById(req.params.animeId)
+  .then(anime =>{
+    const review = anime.reviews.id(req.params.reviewId);
+    if (review.user.equals(req.user.profile._id)) {
+      review.set(req.body);
+      anime.save()
+      .then(() => {
+        res.redirect(`/catalog/${anime._id}`)
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('//')
+      })
+    } else {
+      throw new Error('🚫 Not authorized 🚫')
+    }
+  })
 }
 
 export {
