@@ -112,6 +112,10 @@ function deleteReview(req, res){
   });
 }
 
+function updateReview(req, res){
+  console.log("💩")
+}
+
 export {
   index,
   displayCatalog,
@@ -119,5 +123,6 @@ export {
   create,
   show,
   createReview,
-  deleteReview as delete
+  deleteReview as delete,
+  updateReview,
 }
