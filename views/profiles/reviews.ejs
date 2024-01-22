@@ -9,7 +9,13 @@
     <% } else {%>
       <% profile.animeReviews.forEach(review => { %>
         <div class="review">
-          <div class="review-headline"><% review.reviewTitle %></div>
+          <div class="review-top"></div>
+            <div class="review-headline"><% review.reviewTitle %></div>
+            <div class="review=buttons">
+              <button>📝</button>
+              <button>❌</button>
+            </div>
+          </div>
           <div class="review-body">
             <p class="review-text"><% review.content %></p>
             <div class="review-rating"><% review.rating %></div>

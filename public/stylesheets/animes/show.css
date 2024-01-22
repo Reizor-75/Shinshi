@@ -1,0 +1,27 @@
+.show-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+}
+
+.title-section{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.review-header{  
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.review-title{
+  display: flex;
+  font-size: 36px;
+  font-weight: bold;
+}
+.review-button{
+  display: flex;
+  justify-content: right;
+}

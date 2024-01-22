@@ -1,14 +1,16 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/animes/show.css">
 <%- include('../partials/nav') %>
 
 <main>
+  <div class="show-content">
     <img 
       src="<%= anime.imageURL %>" 
       alt="<%= anime.title %>'s cover image"
-      width="75%"
+      class="anime-image"
     >
     <div class="title-section">
-      <h1 class="card-title"><%= anime.title %></h1>
+      <div class="anime-title"><%= anime.title %></div>
       <div>Rating: <%= anime.rating %> </div>
     </div>
     <div class="2nd-section">
@@ -20,10 +22,12 @@
     
     <!-- insert cast -->
 
-    <h1 class="review-title">Reviews</h1>
-    <% if (user) { %>
-    <button>Add Review</button>
-    <% } %>
+    <div class="review-header">
+      <div class="review-title">Reviews</div>
+      <% if (user) { %>
+      <button class="review-button">Add Review</button>
+      <% } %>
+    </div>
 
     <div class="review-container"> 
       <% if (!anime.reviews.length) { %>
@@ -41,6 +45,7 @@
         <% }) %>
       <% } %>
     </div>
+  </div>
 </main>
 
 <%- include('../partials/footer') %>
