@@ -25,7 +25,10 @@ function newAnime(req, res){
 }
 
 function create(req, res){
-  req.body.ongiong = !!req.body.ongiong;
+  req.body.ongiong = !!req.body.ongiong;  
+  for (let key in req.body) {
+    if (req.body[key] === '') delete req.body[key];
+  }
   Anime.create(req.body)
   .then(show => {
     res.redirect(`/catalog`)

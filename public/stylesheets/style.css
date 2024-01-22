@@ -24,6 +24,7 @@ nav {
   background-color: #f6f6f6;
   color: #1a1a1a;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 10px;
   min-height: 60px;
@@ -36,6 +37,21 @@ main {
   flex-direction: column;
 }
 
-.right {
+/* .right {
   margin-left: auto;
+} */
+
+/* for catalog */
+.card{
+  display: flex;
+  justify-content: left;
+  align-items: flex-end;
+  width: 900px;
+}
+
+.card-body{  
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 80%;
 }
