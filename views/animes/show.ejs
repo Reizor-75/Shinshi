@@ -25,7 +25,22 @@
     <div class="review-header">
       <div class="review-title">Reviews</div>
       <% if (user) { %>
-      <button class="review-button">Add Review</button>
+        <button popovertarget="review-popup" class="review-button">Add Review</button>
+        <div popover="manual" id="review-popup">
+          <form 
+            id="add-review-form"
+            action="catalog/<%= anime._id %>/reviews"
+            method="POST"
+          >
+            <div class="">
+              <input type="text" placeholder="Headline" class="headline-input">
+              <input type="number" placeholder="rating" class="rating-input">
+            </div>
+            <textarea name="content" id="content-textarea" placeholder="Write review here"></textarea>
+            <button type="submit"> Add</button>
+          </form>
+          <button class="cancel-button">❌</button>
+        </div>
       <% } %>
     </div>
 
