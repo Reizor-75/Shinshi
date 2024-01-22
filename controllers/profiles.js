@@ -30,7 +30,9 @@ function watchList(req, res){
 
 function reviews(req, res){
   Profile.findById(req.user.profile._id)
+  .populate("animeReviews")
   .then(profile =>{
+    console.log(`😸 ${profile.animeReviews}`)
     res.render("profiles/reviews", {
       profile,
       title:` Your Reviews`

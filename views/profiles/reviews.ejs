@@ -7,20 +7,22 @@
     <% if (!profile.animeReviews.length) { %>
       <h2>No Reviews</h2>
     <% } else {%>
-      <% profile.animeReviews.forEach(review => { %>
+      <% profile.animeReviews.forEach(anime => { %>
         <div class="review">
-          <div class="review-top"></div>
-            <div class="review-headline"><% review.reviewTitle %></div>
+          <% const review = anime.reviews.find(review => { return review.user.equals(profile._id)}) %>
+          <div class="review-top">
+            <div class="review-anime-title"><%= anime.title %></div>
             <div class="review=buttons">
               <button>📝</button>
               <button>❌</button>
             </div>
           </div>
-          <div class="review-body">
-            <p class="review-text"><% review.content %></p>
-            <div class="review-rating"><% review.rating %></div>
+          <div class="review-body">            
+            <div class="review-headline"><%= review.reviewTitle %></div>
+            <p class="review-content"><%= review.content %></p>
+            <div class="review-rating"><%= review.rating %></div>
           </div>          
-          <div class="username"><% review.user %></div>
+          <div class="username"><%= profile.name %></div>
         </div>
         <hr/>
       <% }) %>

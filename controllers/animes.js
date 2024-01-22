@@ -65,16 +65,20 @@ function createReview(req, res){
     .then(() =>{
       Profile.findById(req.user.profile._id)
       .then(profile =>{
-        profile.animeReviews.push(anime.reviews[anime.reviews.length-1]._id);
+        profile.animeReviews.push(anime._id);
         profile.save()
         .then(()=>{
           res.redirect(`/catalog/${anime._id}`)   
         })
         .catch(err => {
-          console.log("failed anime review push")
+          console.log(err)
           res.redirect('/')
         })
       })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/')
+      });
     })
     .catch(err => {
       console.log(err)
