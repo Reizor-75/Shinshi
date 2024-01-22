@@ -23,9 +23,7 @@ const animeSchema = new Schema({
     enum: ['action', 'comedy', 'fantasy', 'romance'],
   },
   rating: Number,
-  ongoing: {
-    tpye: Boolean,
-  },
+  ongoing:{type: Boolean, },
   reviews: [reviewSchema],
   // studio: {
   //   type: Schema.Types.ObjectId, ref: ""

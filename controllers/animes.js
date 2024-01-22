@@ -26,6 +26,7 @@ function newAnime(req, res){
 
 function create(req, res){
   req.body.ongiong = !!req.body.ongiong;  
+  console.log(req.body.ongiong)
   Anime.create(req.body)
   .then(() => {
     res.redirect(`/catalog`)
