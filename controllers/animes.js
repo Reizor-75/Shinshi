@@ -50,10 +50,30 @@ function show(req, res){
   });
 }
 
+function createReview(req, res){
+  Anime.findById(req.params.animeId)
+  .then(anime =>{
+    anime.reviews.push(req.body)
+    anime.save()
+    .then(() =>{
+      res.redirect(`/movies/${anime._id}`)
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect()
+    });
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  });
+}
+
 export {
   index,
   displayCatalog,
   newAnime as new,
   create,
   show,
+  createReview,
 }
