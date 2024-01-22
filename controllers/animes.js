@@ -57,7 +57,7 @@ function createReview(req, res){
     anime.reviews.push(req.body)
     anime.save()
     .then(() =>{
-      res.redirect(`/movies/${anime._id}`)
+      res.redirect(`/catalog/${anime._id}`)
     })
     .catch(err => {
       console.log(err)

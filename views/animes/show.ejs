@@ -29,7 +29,7 @@
         <div popover="manual" id="review-popup">
           <form 
             id="add-review-form"
-            action="catalog/<%= anime._id %>/reviews"
+            action="<%= anime._id %>/reviews"
             method="POST"
           >
             <div class="">
@@ -39,7 +39,7 @@
             <textarea name="content" id="content-textarea" placeholder="Write review here"></textarea>
             <button type="submit"> Add</button>
           </form>
-          <button class="cancel-button">❌</button>
+          <button class="close-button">❌</button>
         </div>
       <% } %>
     </div>
@@ -50,13 +50,13 @@
       <% } else { %>
         <% anime.reviews.forEach(review => { %>
           <div class="review">
-            <div class="review-headline"><% review.reviewTitle %></div>
+            <div class="review-headline"><%= review.reviewTitle %></div>
             <div class="review-body">
-              <p class="review-text"><% review.content %></p>
-              <div class="review-rating"><% review.rating %></div>
+              <p class="review-text"><%= review.content %></p>
+              <div class="review-rating"><%= review.rating %></div>
             </div>          
-            <div class="username"><% review.user %></div>
           </div>
+          <hr/>
         <% }) %>
       <% } %>
     </div>
