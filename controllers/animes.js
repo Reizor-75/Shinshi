@@ -11,6 +11,10 @@ function displayCatalog(req, res){
       animes,
       title: "Catalog Page"
     });
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
   });
 }
 
@@ -20,8 +24,21 @@ function newAnime(req, res){
   })
 }
 
+function create(req, res){
+  req.body.ongiong = !!req.body.ongiong;
+  Anime.create(req.body)
+  .then(show => {
+    res.redirect(`/catalog`)
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  });
+}
+
 export {
   index,
   displayCatalog,
   newAnime as new,
+  create,
 }
