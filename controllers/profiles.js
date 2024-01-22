@@ -28,7 +28,22 @@ function watchList(req, res){
   });
 }
 
+function reviews(req, res){
+  Profile.findById(req.user.profile._id)
+  .then(profile =>{
+    res.render('profiles/reviews', {
+      profile,
+      title: `Your Reviews`
+    });
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/")
+  });
+}
+
 export {
   index,
   watchList,
+  reviews
 }

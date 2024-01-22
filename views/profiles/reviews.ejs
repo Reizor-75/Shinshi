@@ -1,0 +1,25 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <h1><%= title %></h1>
+  <div class="review-container">
+    <% if (!profile.animeReviews.length) { %>
+      <h2>No Reviews</h2>
+    <% } else {%>
+      <% profile.animeReviews.forEach(review => { %>
+        <div class="review">
+          <div class="review-headline"><% review.reviewTitle %></div>
+          <div class="review-body">
+            <p class="review-text"><% review.content %></p>
+            <div class="review-rating"><% review.rating %></div>
+          </div>          
+          <div class="username"><% review.user %></div>
+        </div>
+        <hr/>
+      <% }) %>
+    <% } %>
+  </div>
+</main>
+
+<%- include('../partials/footer') %>

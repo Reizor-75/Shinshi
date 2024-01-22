@@ -6,8 +6,10 @@ const router = Router()
 
 // GET localhost:3000/profiles
 router.get('/', isLoggedIn, profilesCtrl.index)
-// GET localhost:3000/profiles/wacthed
+// GET localhost:3000/profiles/watched
 router.get('/watched', isLoggedIn, profilesCtrl.watchList)
+// GET localhost:3000/profiles/revies
+router.get('/reviews', isLoggedIn, profilesCtrl.reviews)
 
 export {
   router
