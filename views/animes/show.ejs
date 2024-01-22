@@ -20,22 +20,24 @@
     
     <!-- insert cast -->
 
-    <div class="review-section"> 
-      <h1 class="review-title">Reviews</h1>
-      <% if (user) { %>
-      <button>Add Review</button>
-      <% } %>
+    <h1 class="review-title">Reviews</h1>
+    <% if (user) { %>
+    <button>Add Review</button>
+    <% } %>
 
+    <div class="review-container"> 
       <% if (!anime.reviews.length) { %>
         <h2>No Reviews</h2>
       <% } else { %>
         <% anime.reviews.forEach(review => { %>
-          <div class="review-headline"><% review.reviewTitle %></div>
-          <div class="review-body">
-            <p class="review-text"><% review.content %></p>
-            <div class="review-rating"><% review.rating %></div>
-          </div>          
-          <div class="username"><% review.user %></div>
+          <div class="review">
+            <div class="review-headline"><% review.reviewTitle %></div>
+            <div class="review-body">
+              <p class="review-text"><% review.content %></p>
+              <div class="review-rating"><% review.rating %></div>
+            </div>          
+            <div class="username"><% review.user %></div>
+          </div>
         <% }) %>
       <% } %>
     </div>
