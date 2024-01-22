@@ -1,4 +1,5 @@
 import { Anime } from "../models/anime.js"
+import { Profile } from "../models/profile.js";
 
 function index (req, res) {
   res.render('index', { title: 'Home Page' })
@@ -60,11 +61,11 @@ function createReview(req, res){
     anime.reviews.push(req.body);
     anime.save()
     .then(() =>{
-      res.redirect(`/catalog/${anime._id}`)
+      res.redirect(`/catalog/${anime._id}`)   
     })
     .catch(err => {
       console.log(err)
-      res.redirect()
+      res.redirect('/')
     });
   })
   .catch(err => {
