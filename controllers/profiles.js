@@ -68,11 +68,10 @@ function updateReview(req, res){
   });
 }
 function deleteReview(req, res){
-  console.log("boop😺😺")
   //delete the review in anime
   Profile.findById(req.user.profile._id)
   .then(profile =>{
-    //delete the reference in profile
+    const review = anime.reviews.id(req.params.reviewId);
     if (review.user.equals(req.user.profile._id)) {
       const index = profile.animeReviews.indexOf(anime._id)
       profile.animeReviews.splice(index, 1);
@@ -80,7 +79,6 @@ function deleteReview(req, res){
       .then(()=>{
         Anime.findById(req.params.animeId)
         .then(anime =>{
-          const review = anime.reviews.id(req.params.reviewId);
           anime.reviews.remove(review);
           anime.save()
           .then(()=>{
