@@ -126,13 +126,13 @@ button:hover{
 [popover]{
   width:40%;
   background-color: #d5e8d4;
-  padding:16px
+  padding:16px;
 }
 
 .add-review-inputs{
   display:flex;
   justify-content: space-between;
-  padding-bottom: 8px;
+  padding: 8px 0;
 }
 
 .headline-input{
@@ -142,6 +142,7 @@ button:hover{
 #content-textarea{
   width: 100%;
   height: 100px;
+  text-align: left;
 }
 .bottom-row{
   display: flex;
