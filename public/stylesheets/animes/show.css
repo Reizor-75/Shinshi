@@ -26,6 +26,10 @@
   justify-content: right;
 }
 
+.avatar{
+  width: 50px;
+  border-radius: 50% ;
+}
 
 [popover]::backdrop {
   background-color: rgb(0, 0, 0, .75);
