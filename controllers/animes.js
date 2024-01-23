@@ -31,9 +31,14 @@ function newAnime(req, res){
       throw new Error ('🚫 Not authorized 🚫');
     }
   })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
 }
 
 function create(req, res){
+  
   req.body.ongiong = !!req.body.ongiong;  
   console.log(req.body.ongiong)
   Anime.create(req.body)
