@@ -6,8 +6,10 @@
   <nav>
     <a href="/catalog" class="catalog"> Anime catalog
     </a>
-    <a href="/new" class="add-anime"> Add Anime
-    </a>
+    <% if (user?.profile) {  %>
+      <a href="/new" class="add-anime"> Add Anime
+      </a>
+    <% } %>
     <% if (user) { %>     
       <a href="/profiles" class="profile"> Profile
       </a>

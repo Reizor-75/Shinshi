@@ -21,8 +21,15 @@ function displayCatalog(req, res){
 }
 
 function newAnime(req, res){
-  res.render('animes/new', {
-    title: 'Add New Anime'
+  Profile.findById(req.user.profile._id)
+  .then(profile =>{    
+    if(profile.role === "admin"){
+      res.render('animes/new', {
+        title: 'Add New Anime'
+      })
+    } else{
+      throw new Error ('🚫 Not authorized 🚫');
+    }
   })
 }
 
