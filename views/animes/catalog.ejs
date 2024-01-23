@@ -16,9 +16,11 @@
               class="anime-image"
             >
             <div class="card-body">
-              <div class="card-title"><%= anime.title %></div>
-              <div>Release: <%= anime.releaseYear.getFullYear()+1%> </div>
-              <div>Rating: <%= anime.rating %> </div>
+              <div class="card-body-left">
+                <div class="card-title"><%= anime.title %></div>
+                <div class="card-release"><%= anime.releaseYear.getFullYear()+1%> </div>
+              </div>
+              <div class="card-body-right">Rating: <%= anime.rating%> </div>
             </div>
           </div>
         </a>
