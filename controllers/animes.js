@@ -38,17 +38,26 @@ function newAnime(req, res){
 }
 
 function create(req, res){
-  
-  req.body.ongiong = !!req.body.ongiong;  
-  console.log(req.body.ongiong)
-  Anime.create(req.body)
-  .then(() => {
-    res.redirect(`/catalog`)
+  Profile.findById(req.user.profile._id)
+  .then(profile =>{    
+    if(profile.role === "admin"){
+      req.body.ongiong = !!req.body.ongiong;  
+      Anime.create(req.body)
+      .then(() => {
+        res.redirect(`/catalog`)
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/')
+      });
+    } else{
+      throw new Error ('🚫 Not authorized 🚫');
+    }
   })
   .catch(err => {
     console.log(err)
     res.redirect('/')
-  });
+  })
 }
 
 function show(req, res){
