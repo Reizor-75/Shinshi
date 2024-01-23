@@ -106,9 +106,21 @@ function deleteReview(req, res){
           anime.save()
           .then(()=>{        
             res.redirect(`/catalog/${anime._id}`)
-          })          
+          })
+          .catch(err => {
+            console.log(err)
+            res.redirect('/')
+          });          
         })
+        .catch(err => {
+          console.log(err)
+          res.redirect('/')
+        });
       })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/')
+      });
     }
     else{
       throw new Error ('🚫 Not authorized 🚫')
