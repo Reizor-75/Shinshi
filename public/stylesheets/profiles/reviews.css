@@ -6,6 +6,7 @@
 .review-anime-title{  
   font-size: 28px;
   font-weight: bold;
+  padding-bottom: 8px;
 }
 
 .review-body-top{
@@ -27,11 +28,15 @@
 .review-bottom{
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
 }
 
 .review-buttons{
   display: flex;
   justify-content: left;
+}
+.review-content{
+  padding:8px 0;
 }
 
 button{
@@ -81,4 +86,10 @@ button:hover{
 .bottom-row{
   display: flex;
   justify-content: right;
+}
+.username{
+  padding-right: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  
 }
