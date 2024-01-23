@@ -1,0 +1,13 @@
+.card{
+  display: flex;
+  justify-content: left;
+  align-items: flex-end;
+  width: 900px;
+}
+
+.card-body{  
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 80%;
+}

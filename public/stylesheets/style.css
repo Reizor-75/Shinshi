@@ -12,17 +12,19 @@ html {
 }
 
 body {
-  background-color: #1a1a1a;
-  color: #f6f6f6;
+  background-color: #f1f0f6;
+  color: #2e0c3d;
   /* Use a system font, if none are available use any found sans-sarif font */
   font-family: system-ui, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 
     'Helvetica Neue', sans-serif;
   margin: 0;
+  font-size: 20px;
+  font-weight: 400;
 }
 
 nav {
-  background-color: #f6f6f6;
-  color: #1a1a1a;
+  background-color: #2e0c3d;
+  color: #ee8917;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -37,21 +39,41 @@ main {
   flex-direction: column;
 }
 
-/* .right {
-  margin-left: auto;
-} */
-
-/* for catalog */
-.card{
-  display: flex;
-  justify-content: left;
-  align-items: flex-end;
-  width: 900px;
+.website-title{
+  width:20%;
+  font-size: 36px;
+  font-weight: 900;
 }
 
-.card-body{  
+.website-links{  
+  width:80%;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  width: 80%;
+}
+
+.website-links > a{
+  color: #d5e8d4;
+  text-decoration: none;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.website-links > a:hover{
+  color: #2e0c3d;
+  background-color:#d5e8d4;
+}
+
+button{
+  
+  font-size: 20px;
+  font-weight: 300;
+  color: #d5e8d4;
+  border: none;
+  background-color: rgb(0,0,0,0);
+}
+
+button:hover{
+  color: #2e0c3d;
+  background-color:#d5e8d4;
+
 }
