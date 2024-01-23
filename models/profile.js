@@ -7,6 +7,7 @@ const profileSchema = new Schema({
   avatar: String,
   animeReviews: [{type: Schema.Types.ObjectId, ref: "Anime"}],
   watchedList: [{type: Schema.Types.ObjectId, ref: "Anime"}],
+  role: String,
 }, {
   timestamps: true
 })

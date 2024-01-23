@@ -9,7 +9,13 @@ function isLoggedIn(req, res, next) {
   res.redirect('/')
 }
 
+function isAdmin(req, res, next){
+  if (req.isAuthenticated() && req.user.profile.role === "admin") return next()
+  res.redirect('/')
+}
+
 export {
   passDataToView,
   isLoggedIn,
+  isAdmin
 }
