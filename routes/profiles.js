@@ -10,8 +10,10 @@ router.get('/', isLoggedIn, profilesCtrl.index)
 router.get('/watched', isLoggedIn, profilesCtrl.watchList)
 // GET localhost:3000/profiles/reviews
 router.get('/reviews', isLoggedIn, profilesCtrl.reviews)
-// PUT localhost:3000/profiles/reviews
+// PUT localhost:3000/profiles/reviews/:animeId/:reviewId
 router.put('/reviews/:animeId/:reviewId', isLoggedIn, profilesCtrl.updateReview)
+// DELETE localhost:3000/profiles/reviews/:animeId/:reviewId
+router.delete('/reviews/:animeId/:reviewId', isLoggedIn, profilesCtrl.deleteReview)
 
 export {
   router

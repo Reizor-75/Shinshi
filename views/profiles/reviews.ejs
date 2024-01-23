@@ -28,8 +28,10 @@
                   <textarea name="content" id="content-textarea"><%= review.content%></textarea>
                   <button type="submit">Update</button>
                 </form>
-              </div>  
-              <button>❌</button>
+              </div>                
+              <form action="reviews/<%= anime._id %>/<%= review._id %>/?_method=DELETE" method="POST">
+                <button class="delete-button">🗑️</button>
+              </form>
             </div>
           </div>
           <div class="review-body">            

@@ -68,10 +68,14 @@ function updateReview(req, res){
     res.redirect("/")
   });
 }
+function deleteReview(req, res){
+  console.log("boop😺😺")
+}
 
 export {
   index,
   watchList,
   reviews,
-  updateReview
+  updateReview,
+  deleteReview
 }
