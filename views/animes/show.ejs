@@ -11,14 +11,14 @@
     >
     <div class="title-section">
       <div class="anime-title"><%= anime.title %></div>
-      <div>Rating: <%= anime.rating %> </div>
+      <div class="anime-rating">Rating: <%= anime.rating %> </div>
     </div>
-    <div class="2nd-section">
+    <div class="section2">
       <!-- <div>Studio</div> -->
       <div><%= anime.ongoing ? 'Ongoing' : 'Completed' %> </div>
     </div>
-    <div class="3rd-section">Released: <%= anime.releaseYear.getFullYear()+1%> </div>
-    <div class="4nd-section">Genre: <%= anime.genre %></div>
+    <div class="section3">Released: <%= anime.releaseYear.getFullYear()+1%> </div>
+    <div class="section4">Genre: <%= anime.genre %></div>
     
     <!-- insert cast -->
 

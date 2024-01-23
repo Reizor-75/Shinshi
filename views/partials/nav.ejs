@@ -8,7 +8,7 @@
     <div class="website-links">
       <a href="/catalog" class="catalog"> Anime catalog
       </a>
-      <% if (user?.profile) {  %>
+      <% if (user?.profile.role > 500) {  %>
         <a href="/new" class="add-anime"> Add Anime
         </a>
       <% } %>

@@ -1,6 +1,5 @@
 import { Anime } from "../models/anime.js"
 import { Profile } from "../models/profile.js";
-import { reviews } from "./profiles.js";
 
 function index (req, res) {
   res.render('index', { title: 'Home Page' })
@@ -23,7 +22,7 @@ function displayCatalog(req, res){
 function newAnime(req, res){
   Profile.findById(req.user.profile._id)
   .then(profile =>{    
-    if(profile.role === "admin"){
+    if(profile.role > 500){
       res.render('animes/new', {
         title: 'Add New Anime'
       });
@@ -40,7 +39,7 @@ function newAnime(req, res){
 function create(req, res){
   Profile.findById(req.user.profile._id)
   .then(profile =>{    
-    if(profile.role === "admin"){
+    if(profile.role> 500){
       req.body.ongiong = !!req.body.ongiong;  
       Anime.create(req.body)
       .then(() => {
