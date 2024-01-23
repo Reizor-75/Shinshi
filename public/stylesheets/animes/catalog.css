@@ -22,8 +22,9 @@ a{
 
 .card-body{  
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-end;
+  padding: 0 8px;
   width: 80%;
 }
 

@@ -40,7 +40,11 @@ function create(req, res){
   Profile.findById(req.user.profile._id)
   .then(profile =>{    
     if(profile.role> 500){
-      req.body.ongiong = !!req.body.ongiong;  
+      req.body.ongoing = !!req.body.ongoing;  
+      for (let key in req.body) {
+        if (req.body[key] === '') delete req.body[key]
+      }
+      console.log(req.body.ongiong);
       Anime.create(req.body)
       .then(() => {
         res.redirect(`/catalog`);
