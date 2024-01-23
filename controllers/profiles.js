@@ -71,14 +71,14 @@ function deleteReview(req, res){
   //delete the review in anime
   Profile.findById(req.user.profile._id)
   .then(profile =>{
-    const review = anime.reviews.id(req.params.reviewId);
-    if (review.user.equals(req.user.profile._id)) {
-      const index = profile.animeReviews.indexOf(anime._id)
-      profile.animeReviews.splice(index, 1);
-      profile.save()
-      .then(()=>{
-        Anime.findById(req.params.animeId)
-        .then(anime =>{
+    Anime.findById(req.params.animeId)
+    .then(anime =>{
+      const review = anime.reviews.id(req.params.reviewId);
+      if (review.user.equals(req.user.profile._id)) {
+        const index = profile.animeReviews.indexOf(anime._id)
+        profile.animeReviews.splice(index, 1);
+        profile.save()
+        .then(()=>{
           anime.reviews.remove(review);
           anime.save()
           .then(()=>{
@@ -93,14 +93,14 @@ function deleteReview(req, res){
           console.log(err);
           res.redirect("/");
         });
-      })
-      .catch(err => {
-        console.log(err);
-        res.redirect("/");
-      });
-    } else{
-      throw new Error ('🚫 Not authorized 🚫')
-    }
+      } else{
+        throw new Error ('🚫 Not authorized 🚫')
+      }
+    })
+    .catch(err => {
+      console.log(err);
+      res.redirect("/");
+    });
   })
   .catch(err => {
     console.log(err);
