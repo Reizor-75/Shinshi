@@ -34,13 +34,16 @@
             action="<%= anime._id %>/reviews"
             method="POST"
           >
-            <div class="">
-              <h3>Add Review: <%= anime.title %></h3>
+            <div>Add Review: <%= anime.title %></div>
+            <div class="add-review-inputs">
               <input type="text" name="reviewTitle" placeholder="Headline" class="headline-input">
-              <input type="number" name="rating" placeholder="rating" class="rating-input">
+              <input type="number" name="rating" placeholder="Rating" class="rating-input">
             </div>
             <textarea name="content" placeholder="Write review here" id="content-textarea"></textarea>
-            <button type="submit"> Add</button>
+            <div class="bottom-row">
+              <button type="submit"> Submit</button>
+            </div>
+            
           </form>
         </div>
       <% } %>
