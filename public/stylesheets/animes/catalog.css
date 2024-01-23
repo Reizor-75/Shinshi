@@ -1,13 +1,26 @@
+.card-container{
+  width: 80%;
+}
+
 .card{
   display: flex;
+  justify-content: center;
+  align-items: flex-end;  
+}
+
+.anime-image{
+  display: flex;
   justify-content: left;
-  align-items: flex-end;
-  width: 900px;
+
 }
 
 .card-body{  
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: flex-end;
   width: 80%;
+}
+
+.card:hover{  
+  background-color: #EE8917;
 }
