@@ -1,12 +1,13 @@
 <%- include('../partials/html-head') %>
 <link rel="stylesheet" href="/stylesheets/animes/catalog.css">
+<link rel="stylesheet" href="/stylesheets/profiles/watched.css">
 <%- include('../partials/nav') %>
 
-<main>
-  <div>
-    <div class="header">
-      <h1><%= title %></h1>
-      <form action="/profiles/watched" method="POST">
+<main >
+  <div class="watched-container">
+    <div class="title"><%= title %></div>
+    <div>
+      <form  class="watched-list-input" action="/profiles/watched" method="POST">
         <select name="animeId">
           <% animes.forEach(anime => { %>
             <option value="<%=anime._id %>"><%= anime.title %></option>
@@ -26,6 +27,7 @@
                 src="<%= anime.imageURL %>" 
                 alt="<%= anime.title %>'s cover image"
                 width="100px"
+                class="anime-image"
               >
               <div class="card-body">
                 <div class="card-body-left">
@@ -34,7 +36,6 @@
                 </div>
                 <div class="card-body-right">Rating: <%= anime.rating ? anime.rating : "N/A" %></div>
               </div>
-              <!-- delete -->
               <form action="watched/<%= anime._id %>/?_method=DELETE" method="POST">
                 <button class="delete-button">🗑️</button>
               </form>

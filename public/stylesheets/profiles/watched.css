@@ -1,0 +1,41 @@
+.watched-container{
+  width: 75%;
+  padding-bottom: 20px;
+  background-color: #2e0c3d25;
+}
+
+button{
+  display: flex;
+  justify-content: right;
+  font-size: 16px;
+  font-weight: 600;
+  color: #EE8917;
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  margin: 2px;
+  background-color: #2e0c3d; ;
+}
+
+button:hover{
+  color: #2e0c3d;
+  background-color: #EE8917; 
+}
+
+.title{
+  display: flex;
+  justify-content: center;
+  background-color: #2e0c3d25;
+  font-size: 48px;
+  font-weight: bolder;
+  padding: 8px 0;
+}
+.watched-list-input{
+  display: flex;
+  justify-content: center;
+}
+
+.delete-button{  
+  font-size: 10px;
+  padding: 4px;
+}
