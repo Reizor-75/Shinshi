@@ -20,7 +20,11 @@
       </div>
       <div class="section3">Released: <%= anime.releaseYear.getFullYear()+1%> </div>
       <div class="section4">
-        <div>Genre: <%= anime.genre %></div> 
+        <div>Genre: 
+          <% anime.genre.forEach(indiGenre => { %>
+            <%= indiGenre %> 
+          <% }) %>
+        </div> 
         <div class="admin-buttons">
           <% if (user?.profile.role >500) { %>
             <button popovertarget="admin-edit-popup" class="admin-edit-button">📝</button>

@@ -18,10 +18,10 @@ const animeSchema = new Schema({
   },
   releaseYear: Date,
   imageURL: String,
-  genre: {
+  genre: [{
     type: String,
-    enum: ['action', 'comedy', 'fantasy', 'romance'],
-  },
+    enum: ['Action', 'Comedy', 'Fantasy', 'Romance'],
+  }],
   rating: Number,
   ongoing: Boolean,
   reviews: [reviewSchema],

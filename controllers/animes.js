@@ -47,15 +47,12 @@ function deleteAnime(req, res){
   });
 }
 
-function create(req, res){
+function create(req, res){  
   Profile.findById(req.user.profile._id)
   .then(profile =>{    
     if(profile.role> 500){
       req.body.ongoing = !!req.body.ongoing;  
-      for (let key in req.body) {
-        if (req.body[key] === '') delete req.body[key]
-      }
-      console.log(req.body.ongiong);
+      if(!req.body.releaseYear)req.body.releaseYear = new Date();
       Anime.create(req.body)
       .then(() => {
         res.redirect(`/catalog`);

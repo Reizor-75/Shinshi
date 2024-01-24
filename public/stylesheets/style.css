@@ -88,29 +88,17 @@ hr{
   border: 1px solid #2e0c3d;
 }
 
-
-/* button.logout{  
-  color: #2e0c3d;
-  background-color: #d5e8d4;  
-  padding: 8px;
-  border: none;
-  border-radius: 8px;
-}
-
-button.logout:hover{
-  color: #ee8917;
-  background-color: rgb(0,0,0,0);
-} */
-
 .profile-container{
   padding: 8px;
   border-radius: 8px;
   margin-right: 4px;  
+  width: 200px;
 }
 
 .profile-options{
   display: none;
   position: absolute;
+  width: 400px;
   /* overflow: auto; */
 }
 
@@ -133,19 +121,6 @@ button.logout:hover{
 .option:hover{    
   color: #2e0c3d;
   background-color: #ee8917;
-}
-
-.logout-button{    
-  color: #d5e8d4;
-  background-color: rgb(0,0,0,0);
-  border: none;
-  font-size: 20px;
-  font-weight: 500;
-}
-
-.logout-button:hover{    
-  color: #2e0c3d;
-  background-color: #d5e8d4;
 }
 
 .logout{    
