@@ -21,28 +21,20 @@ a{
 .card-container{
   display: flex;
   flex-direction: column;
+  padding:16px;
 }
 
 .card{
   display: flex;
-  justify-content: center;
-  align-items: flex-end;  
-  padding: 16px;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 16px;  
 }
 
 .anime-image{
   display: flex;
   justify-content: left;
 }
-
-.card-body{  
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding: 0 8px;
-  width: 80%;
-}
-
 .card-body-left{  
   display: flex;
   justify-content: left;
@@ -54,9 +46,11 @@ a{
   font-size: 20px;
   font-weight: bold;
   padding-right: 4px;
+  margin: 0 4px;
 }
 
 .card-body-right{  
+  display: flex;
   font-size: 16px;
   font-weight: bold;
 }

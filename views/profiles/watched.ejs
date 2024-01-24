@@ -23,24 +23,25 @@
         <% profile.watchedList.forEach(anime => { %>
           <a class="text-decoration-none" href="/catalog/<%= anime._id %>">
             <div class="card">
-              <img 
-                src="<%= anime.imageURL %>" 
-                alt="<%= anime.title %>'s cover image"
-                width="100px"
-                class="anime-image"
-              >
-              <div class="card-body">
-                <div class="card-body-left">
-                  <div class="card-title"><%= anime.title %></div>
-                  <div class="card-release"><%= anime.releaseYear.getFullYear()+1%> </div>
-                </div>
-                <div class="card-body-right">Rating: <%= anime.rating ? anime.rating : "N/A" %></div>
+              <div class="card-body-left">
+                <img 
+                  src="<%= anime.imageURL %>" 
+                  alt="<%= anime.title %>'s cover image"
+                  width="100px"
+                  class="anime-image"
+                >
+                <div class="card-title"><%= anime.title %></div>
+                <div class="card-release"><%= anime.releaseYear.getFullYear()+1%> </div>
               </div>
-              <form action="watched/<%= anime._id %>/?_method=DELETE" method="POST">
-                <button class="delete-button">🗑️</button>
-              </form>
+              <div class="card-body-right">
+                <div>Rating: <%= anime.rating ? anime.rating : "N/A" %></div>
+                <form action="watched/<%= anime._id %>/?_method=DELETE" method="POST">
+                  <button class="delete-button">🗑️</button>
+                </form>
+              </div>
             </div>
           </a>
+          
           <hr/>
         <% }) %>
       <% } %>

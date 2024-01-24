@@ -1,5 +1,5 @@
 .watched-container{
-  width: 75%;
+  width: 70%;
   padding-bottom: 20px;
   background-color: #2e0c3d25;
 }
@@ -38,4 +38,5 @@ button:hover{
 .delete-button{  
   font-size: 10px;
   padding: 4px;
+  margin-left: 4px;
 }
