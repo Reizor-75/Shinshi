@@ -1,41 +1,54 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/animes/new.css">
 <%- include('../partials/nav') %>
 
 <main>
-  <h1><%= title %></h1>
   <form id="new-form" action="/catalog" method="POST">
-    <!-- title -->
-    <label for="title-input">Title:</label>
-    <input type="text" name="title" id="title-input">
-    <!-- releaseYear -->
-    <label for="release-year-input">Release Year:</label>
-    <input type="text" name="releaseYear" id="release-year-input">
-    <!-- rating -->
-    <label for="url-input">Image URL:</label>
-    <input type="text" name="imageURL" id="rating-input">
-    <!-- ongoing -->
-    <label for="ongoing-input">Ongoing:</label>
-    <input type="checkbox" name="ongoing" id="ongoing-input">
-    <!-- genre -->
-    <fieldset>
-      <legend>Genre</legend>
-      <div>
-        <input type="checkbox" id="action-checkbox" name="genre" value="action" />
-        <label for="action-checkbox">Action</label>
+    <div class="title"><%= title %></div>
+    <div class="new-form-body">
+      <div class="new-form-top">
+        <!-- title -->
+        <div id="title-input">
+          <label for="title-input">Title:</label>
+          <input type="text" name="title" id="title-input">
+        </div>
+        <!-- releaseYear -->
+        <div id="release-year-input">
+          <label for="release-year-input">Release Year:</label>
+          <input type="text" name="releaseYear" id="release-year-input">
+        </div>
+        <!-- ongoing -->
+        <div id="ongoing-input">
+          <label for="ongoing-input">Ongoing:</label>
+          <input type="checkbox" name="ongoing" id="ongoing-input">
+        </div>
       </div>
-      <div>
-        <input type="checkbox" id="comedy-checkbox" name="genre" value="comedy" />
-        <label for="comedy-checkbox">Comedy</label>
-      </div>      
-      <div>
-        <input type="checkbox" id="fantasy-checkbox" name="genre" value="fantasy" />
-        <label for="fantasy-checkbox">Fantasy</label>
+      <!-- image url -->
+      <label for="url-input">Image URL:</label>
+      <input type="text" name="imageURL" id="rating-input">
+      <!-- genre -->
+      <fieldset>
+        <legend>Genre</legend>
+        <div>
+          <input type="checkbox" id="action-checkbox" name="genre" value="action" />
+          <label for="action-checkbox">Action</label>
+        </div>
+        <div>
+          <input type="checkbox" id="comedy-checkbox" name="genre" value="comedy" />
+          <label for="comedy-checkbox">Comedy</label>
+        </div>      
+        <div>
+          <input type="checkbox" id="fantasy-checkbox" name="genre" value="fantasy" />
+          <label for="fantasy-checkbox">Fantasy</label>
+        </div>
+        <div>
+          <input type="checkbox" id="romance-checkbox" name="genre" value="romance" />
+          <label for="romance-checkbox">Romance</label>
+        </div>
+      </fieldset>    
+      <div class="bottom-row">
+        <button type="submit">Add Anime</button>
       </div>
-      <div>
-        <input type="checkbox" id="romance-checkbox" name="genre" value="romance" />
-        <label for="romance-checkbox">Romance</label>
-      </div>
-    </fieldset>    
-    <button type="submit">Add Anime</button>
+    </div>
   </form>
 <%- include('../partials/footer') %>
