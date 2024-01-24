@@ -44,8 +44,12 @@ main {
   flex-direction: column;
 }
 
+#mascot{
+  height: 50px;
+  margin:0 4px;
+}
+
 .website-title{
-  width:15%;
   color: #ee8917;
   font-size: 36px;
   font-weight: 900;
