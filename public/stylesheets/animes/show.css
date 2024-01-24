@@ -125,9 +125,9 @@ button:hover{
 }
 
 [popover]::backdrop {
-  background-color: rgb(0, 0, 0, .85);
-  
+  background-color: rgb(0, 0, 0, .85);  
 }
+
 [popover]{
   width:40%;
   background-color: #d5e8d4;

@@ -20,7 +20,7 @@ body {
   margin: 0;
   min-width: 450px;
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 a{
@@ -70,7 +70,7 @@ main {
   background-color:#d5e8d4;
 }
 
-button{  
+/* button{  
   font-size: 20px;
   font-weight: 300;
   color: #d5e8d4;
@@ -81,49 +81,80 @@ button{
 button:hover{
   color: #2e0c3d;
   background-color:#d5e8d4;
-}
+} */
 
 hr{  
   width: 100%;
   border: 1px solid #2e0c3d;
 }
 
-a.logout{
-  background-color: rgb(0,0,0,0);
-  padding: 0px;
-}
-a.logout:hover{
-  background-color: rgb(0,0,0,0);
-}
 
-.profile-interations{
-  display: flex;
-  align-items: flex-end;
-}
-
-button.logout{  
+/* button.logout{  
   color: #2e0c3d;
-  background-color: #ee8917;  
+  background-color: #d5e8d4;  
   padding: 8px;
+  border: none;
   border-radius: 8px;
 }
 
 button.logout:hover{
   color: #ee8917;
   background-color: rgb(0,0,0,0);
-}
+} */
 
-.profile{
-  color: #d5e8d4;
-  text-decoration: none;
+.profile-container{
   padding: 8px;
   border-radius: 8px;
   margin-right: 4px;  
 }
-.profile:hover{
-  color:#2e0c3d;
-  background-color: #d5e8d4;
-  text-decoration: none;
+
+.profile-options{
+  display: none;
+  position: absolute;
+  /* overflow: auto; */
+}
+
+.profile-container:hover {
+  color: #2e0c3d;
+  background-color: #ee8917;
+}
+
+.profile-container:hover .profile-options {
+  display: flex;
+  flex-direction: column;
+}
+
+.option{    
+  color: #ee8917;
+  background-color: #2e0c3d;
   padding: 8px;
-  border-radius: 8px;
+}
+
+.option:hover{    
+  color: #2e0c3d;
+  background-color: #ee8917;
+}
+
+.logout-button{    
+  color: #d5e8d4;
+  background-color: rgb(0,0,0,0);
+  border: none;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.logout-button:hover{    
+  color: #2e0c3d;
+  background-color: #d5e8d4;
+}
+
+.logout{    
+  color: #d5e8d4;
+  background-color: #2e0c3d;
+  padding: 8px;
+} 
+
+.option-logout:hover{  
+  color: #2e0c3d;
+  background-color: #d5e8d4;
 }

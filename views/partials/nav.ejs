@@ -4,22 +4,27 @@
 </head>
 <body>
   <nav>
+    <img src="/images/pigeonV2.png" alt="pigeon mascot" height="50px">
     <a href="/" class="website-title">Shinshi</a>
     <div class="website-links">
-      <a href="/catalog" class="catalog"> Anime catalog
+      <a href="/catalog" class="catalog"> Anime Catalog
       </a>
-      <% if (user?.profile.role > 500) {  %>
-        <a href="/new" class="add-anime"> Add Anime
-        </a>
-      <% } %>
+      
       <% if (user) { %>    
-        <div class="profile-interations">
-          <a href="/profiles" class="profile"> Profile
-          </a>
-          <a href="/auth/logout" class="logout">
-            <button class="logout" type="submit">Logout</button>
-          </a>
+        <div class="profile-container">
+          <div class="profile-title">Profile</div>
+          <div class="profile-options">
+            <a class="option" href="/profiles/watched">Watched List</a>
+            <a class="option" href="/profiles/reviews">Reviews</a>
+            <% if (user?.profile.role > 500) {  %>
+              <a href="/new" class="option">Add Anime</a>
+            <% } %>
+            <a class="option option-logout" href="/auth/logout">
+              <button class="logout-button" type="submit">Logout</button>
+            </a>
+          </div>
         </div>
+
       <% } else { %>
         <div 
           id="g_id_onload"

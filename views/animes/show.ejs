@@ -23,8 +23,8 @@
         <div>Genre: <%= anime.genre %></div> 
         <div class="admin-buttons">
           <% if (user?.profile.role >500) { %>
-            <button popovertarget="edit-popup" class="admin-edit-button">📝</button>
-            <div popover="auto" id="edit-popup">
+            <button popovertarget="admin-edit-popup" class="admin-edit-button">📝</button>
+            <div popover="auto" id="admin-edit-popup">
               <form 
                 id="edit-review-form"
                 action="<%= anime._id %>?_method=PUT"
