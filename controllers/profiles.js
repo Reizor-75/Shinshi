@@ -34,7 +34,7 @@ function watchList(req, res){
   })
 }
 
-function createWatchList(req, res){
+function addWatchList(req, res){
   Profile.findById(req.user.profile._id)
   .then(profile =>{
     //req.body should return anime
@@ -136,7 +136,7 @@ function deleteReview(req, res){
 export {
   index,
   watchList,
-  createWatchList,
+  addWatchList,
   reviews,
   updateReview,
   deleteReview,
