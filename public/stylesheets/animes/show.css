@@ -80,23 +80,6 @@ a{
   font-weight: normal;
 }
 
-button{
-  display: flex;
-  justify-content: right;
-  font-size: 16px;
-  font-weight: 600;
-  color: #EE8917;
-  border: none;
-  border-radius: 8px;
-  padding: 8px;
-  margin: 2px;
-  background-color: #2e0c3d; ;
-}
-button:hover{
-  color: #2e0c3d;
-  background-color: #EE8917; 
-}
-
 .user{
   display: flex;
   justify-content: space-between;
