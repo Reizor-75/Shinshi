@@ -8,11 +8,13 @@
     <div class="title"><%= title %></div>
     <div>
       <form  class="watched-list-input" action="/profiles/watched" method="POST">
-        <select name="animeId">
+        <select class="custom-select" name="animeId">
+          <option disabled selected>Find Anime</option>
           <% animes.forEach(anime => { %>
             <option value="<%=anime._id %>"><%= anime.title %></option>
           <% }) %>
         </select>
+        
         <button type="submit"> Add Anime</button>
       </form>
     </div>

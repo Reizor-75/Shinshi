@@ -1,5 +1,5 @@
 .watched-container{
-  width: 70%;
+  width: 65%;
   padding-bottom: 20px;
   background-color: #2e0c3d25;
 }
@@ -33,10 +33,19 @@ button:hover{
 .watched-list-input{
   display: flex;
   justify-content: center;
+  margin-top: 8px;;
 }
 
 .delete-button{  
   font-size: 10px;
   padding: 4px;
   margin-left: 4px;
+}
+
+.custom-select{
+  border-radius: 4px;
+  color: #2e0c3d;
+  font-weight: bold;
+  background-color: #f1f0f6;
+  padding: 0 8px;
 }
