@@ -2,7 +2,7 @@ import { Profile } from "../models/profile.js"
 import { Anime } from "../models/anime.js"
 
 function index(req, res) {
-  Profile.findById(req.user.profile._id)
+  Profile.findById(req.user?.profile._id)
   .then(profile =>{
     res.render('profiles/index', {
       profile,
@@ -10,15 +10,15 @@ function index(req, res) {
     })
   })
   .catch(err => {
-    console.log(err)
-    res.redirect("/")
+    console.log(err);
+    res.redirect("/");
   });
 }
 
 function watchList(req, res){
   Anime.find({})
   .then(animes =>{
-    Profile.findById(req.user.profile._id)
+    Profile.findById(req.user?.profile._id)
     .populate("watchedList")
     .then(profile =>{
       res.render("profiles/watched", {
@@ -28,14 +28,14 @@ function watchList(req, res){
       });
     })
     .catch(err => {
-      console.log(err)
-      res.redirect("/")
+      console.log(err);
+      res.redirect("/");
     });
   })
 }
 
 function addWatchList(req, res){
-  Profile.findById(req.user.profile._id)
+  Profile.findById(req.user?.profile._id)
   .then(profile =>{
     //req.body should return anime
     profile.watchedList.push(req.body.animeId);
@@ -44,18 +44,34 @@ function addWatchList(req, res){
       res.redirect("/profiles/watched");
     })
     .catch(err => {
-      console.log(err)
-      res.redirect("/")
+      console.log(err);
+      res.redirect("/");
     });
   })
   .catch(err => {
-    console.log(err)
-    res.redirect("/")
+    console.log(err);
+    res.redirect("/");
   });
 }
 
 function deleteWatchList(req, res){
-  console.log("💩")
+  Profile.findById(req.user?.profile._id)
+  .then(profile =>{    
+    const index = profile.watchedList.indexOf(req.params.animeId);
+    profile.watchedList.splice(index, 1);
+    profile.save()
+    .then(()=>{      
+      res.redirect("/profiles/watched");
+    })
+    .catch(err => {
+      console.log(err);
+      res.redirect("/");
+    });
+  })
+  .catch(err => {
+    console.log(err);
+    res.redirect("/");
+  });
 }
 
 function reviews(req, res){
@@ -68,8 +84,8 @@ function reviews(req, res){
     });
   })
   .catch(err => {
-    console.log(err)
-    res.redirect("/")
+    console.log(err);
+    res.redirect("/");
   });
 }
 
@@ -98,13 +114,13 @@ function updateReview(req, res){
 }
 function deleteReview(req, res){
   //delete the review in anime
-  Profile.findById(req.user.profile._id)
+  Profile.findById(req.user?.profile._id)
   .then(profile =>{
     Anime.findById(req.params.animeId)
     .then(anime =>{
       const review = anime.reviews.id(req.params.reviewId);
       if (review.user.equals(req.user.profile._id)) {
-        const index = profile.animeReviews.indexOf(anime._id)
+        const index = profile.animeReviews.indexOf(anime._id);
         profile.animeReviews.splice(index, 1);
         profile.save()
         .then(()=>{
@@ -123,7 +139,7 @@ function deleteReview(req, res){
           res.redirect("/");
         });
       } else{
-        throw new Error ('🚫 Not authorized 🚫')
+        throw new Error ('🚫 Not authorized 🚫');
       }
     })
     .catch(err => {
