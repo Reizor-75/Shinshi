@@ -16,34 +16,32 @@ function index(req, res) {
 }
 
 function watchList(req, res){
-  Profile.findById(req.user.profile._id)
-  .then(profile =>{
-    res.render("profiles/watched", {
-      profile,
-      title:` Watched List`
+  Anime.find({})
+  .then(animes =>{
+    Profile.findById(req.user.profile._id)
+    .populate("watchedList")
+    .then(profile =>{
+      res.render("profiles/watched", {
+        animes,
+        profile,
+        title:` Watched List`
+      });
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect("/")
     });
   })
-  .catch(err => {
-    console.log(err)
-    res.redirect("/")
-  });
 }
 
 function createWatchList(req, res){
   Profile.findById(req.user.profile._id)
   .then(profile =>{
     //req.body should return anime
-    Anime.findById(req.body)
-    .then(anime =>{
-      profile.watchedList.push(anime._id);
-      profile.save()
-      .then(()=>{
-        res.redirect("/profiles/watched");
-      })
-      .catch(err => {
-        console.log(err)
-        res.redirect("/")
-      });
+    profile.watchedList.push(req.body.animeId);
+    profile.save()
+    .then(()=>{
+      res.redirect("/profiles/watched");
     })
     .catch(err => {
       console.log(err)

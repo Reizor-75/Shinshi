@@ -1,12 +1,17 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/animes/catalog.css">
 <%- include('../partials/nav') %>
 
 <main>
   <div>
     <div class="header">
       <h1><%= title %></h1>
-      <form action="/profiles/watched" method="POST" >
-        <input type="search" name="title" placeholder="Search Anime" id=""/>
+      <form action="/profiles/watched" method="POST">
+        <select name="animeId">
+          <% animes.forEach(anime => { %>
+            <option value="<%=anime._id %>"><%= anime.title %></option>
+          <% }) %>
+        </select>
         <button type="submit"> Add Anime</button>
       </form>
     </div>
@@ -14,18 +19,20 @@
       <% if (!profile.watchedList.length) { %>
         <h2>No Anime</h2>
       <% } else { %>
-        <% animes.forEach(anime => { %>
-          <a class="text-decoration-none" href="/catalog/<%= anime._id %>">
+        <% profile.watchedList.forEach(watched => { %>
+          <a class="text-decoration-none" href="/catalog/<%= watched._id %>">
             <div class="card">
               <img 
-                src="<%= anime.imageURL %>" 
-                alt="<%= anime.title %>'s cover image"
+                src="<%= watched.imageURL %>" 
+                alt="<%= watched.title %>'s cover image"
                 width="100px"
               >
               <div class="card-body">
-                <div class="card-title"><%= anime.title %></div>
-                <div>Release: <%= anime.releaseYear.getFullYear()+1%> </div>
-                <div>Rating: <%= anime.rating %> </div>
+                <div class="card-body-left">
+                  <div class="card-title"><%= watched.title %></div>
+                  <div class="card-release"><%= watched.releaseYear.getFullYear()+1%> </div>
+                </div>
+                <div class="card-body-right">Rating: <%= watched.rating ? watched.rating : "N/A" %></div>
               </div>
             </div>
           </a>
