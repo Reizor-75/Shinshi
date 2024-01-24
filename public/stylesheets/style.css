@@ -44,9 +44,13 @@ main {
   flex-direction: column;
 }
 
+.logo{
+  display: flex;
+}
+
 #mascot{
   height: 50px;
-  margin:0 4px;
+  margin: 0 4px;
 }
 
 .website-title{
@@ -56,10 +60,11 @@ main {
 }
 
 .website-links{  
-  width:85%;
+  width:90%;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  margin: 0 4px;
 }
 
 .website-links > a{
