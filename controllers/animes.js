@@ -14,6 +14,7 @@ function index (req, res) {
 
 function displayCatalog(req, res){
   Anime.find({})
+  .sort({releaseYear: -1})
   .then(animes => {
     res.render("animes/catalog", {
       animes,
