@@ -11,41 +11,46 @@
       <% profile.animeReviews.forEach(anime => { %>
         <div class="review">
           <% const review = anime.reviews.find(review => { return review.user.equals(profile._id)}) %>
-          <div class="review-anime-title"><%= anime.title %></div>
-          <div class="review-body">  
+          <img 
+            src="<%= anime.imageURL %>" 
+            alt="<%= anime.title %>'s cover image"
+            class="anime-image"
+          >
+          
+          <div class="review-body"> 
+            <div class="review-anime-title"><%= anime.title %></div>
             <div class="review-body-top">          
               <div class="review-headline"><%= review.reviewTitle %></div>
               <div class="review-rating">Rating: <%= review.rating %></div>
             </div>
-            <div class="review-content"><%= review.content %></div>
-          </div> 
-          
-          <div class="review-bottom">
-            <div class="review-buttons">
-              <button popovertarget="edit-popup" class="edit-button">📝</button>
-              <div popover="auto" id="edit-popup">
-                <form 
-                  id="edit-review-form"
-                  action="reviews/<%= anime._id %>/<%= review._id %>?_method=PUT"  
-                  method="POST"
-                >
-                  <div>Edit review: <%= anime.title %></div>
-                  <div class="add-review-inputs"> 
-                    <input type="text" name="reviewTitle" value="<%= review.reviewTitle %>" class="headline-input">
-                    <input type="number" name="rating" value="<%= review.rating %>" class="rating-input">
-                  </div>
-                  <textarea name="content" id="content-textarea"><%= review.content%></textarea>
-                  <div class="bottom-row">
-                    <button type="submit">Update</button>
-                  </div>
+            <div class="review-content"><%= review.content %></div>      
+            <div class="review-bottom">
+              <div class="review-buttons">
+                <button popovertarget="edit-popup" class="edit-button">📝</button>
+                <div popover="auto" id="edit-popup">
+                  <form 
+                    id="edit-review-form"
+                    action="reviews/<%= anime._id %>/<%= review._id %>?_method=PUT"  
+                    method="POST"
+                  >
+                    <div>Edit review: <%= anime.title %></div>
+                    <div class="add-review-inputs"> 
+                      <input type="text" name="reviewTitle" value="<%= review.reviewTitle %>" class="headline-input">
+                      <input type="number" name="rating" value="<%= review.rating %>" class="rating-input">
+                    </div>
+                    <textarea name="content" id="content-textarea"><%= review.content%></textarea>
+                    <div class="bottom-row">
+                      <button type="submit">Update</button>
+                    </div>
+                  </form>
+                </div>                
+                <form action="reviews/<%= anime._id %>/<%= review._id %>/?_method=DELETE" method="POST">
+                  <button class="delete-button">🗑️</button>
                 </form>
-              </div>                
-              <form action="reviews/<%= anime._id %>/<%= review._id %>/?_method=DELETE" method="POST">
-                <button class="delete-button">🗑️</button>
-              </form>
+              </div>
+              <div class="username"><%= profile.name %></div>
             </div>
-            <div class="username"><%= profile.name %></div>
-          </div>
+          </div> 
         </div>
         <hr/>
       <% }) %>

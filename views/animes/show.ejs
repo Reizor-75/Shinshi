@@ -2,24 +2,27 @@
 <link rel="stylesheet" href="/stylesheets/animes/show.css">
 <%- include('../partials/nav') %>
 
-<main>
-  <div class="show-content">
-    <img 
+<main> 
+  <img 
       src="<%= anime.imageURL %>" 
       alt="<%= anime.title %>'s cover image"
       class="anime-image"
-    >
-    <div class="title-section">
-      <div class="anime-title"><%= anime.title %></div>
-      <div class="anime-rating">Rating: <%= anime.rating ? anime.rating : "N/A" %> </div>
+  >
+  <div class="show-content">
+    <div class="anime-info">
+      <div class="title-section">
+        <div class="anime-title"><%= anime.title %></div>
+        <div class="anime-rating">Rating: <%= anime.rating ? anime.rating : "N/A" %> </div>
+      </div>
+      <div class="section2">
+        <!-- <div>Studio</div> -->
+        <div><%= anime.ongoing ? 'Ongoing' : 'Completed' %> </div>
+      </div>
+      <div class="section3">Released: <%= anime.releaseYear.getFullYear()+1%> </div>
+      <div class="section4">
+        <div>Genre: <%= anime.genre %></div>   
+      </div>
     </div>
-    <div class="section2">
-      <!-- <div>Studio</div> -->
-      <div><%= anime.ongoing ? 'Ongoing' : 'Completed' %> </div>
-    </div>
-    <div class="section3">Released: <%= anime.releaseYear.getFullYear()+1%> </div>
-    <div class="section4">Genre: <%= anime.genre %></div>
-    
     <!-- insert cast -->
 
     <!-- reviews -->
@@ -50,7 +53,7 @@
     <!-- display reviews -->
     <div class="review-container"> 
       <% if (!anime.reviews.length) { %>
-        <h2>No Reviews</h2>
+        <div class="review">No Reviews</div>
       <% } else { %>
         <% anime.reviews.forEach(review => { %>
           <div class="review">

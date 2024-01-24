@@ -2,9 +2,22 @@
   width: 80%;
   padding:8px
 }
+.anime-image{
+  width: 25%;
+  padding-right: 8px ;
+}
+.review{
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  background-color: #2e0c3d25;
+}
 
+.review-body{
+  width: 75%;
+}
 .review-anime-title{  
-  font-size: 28px;
+  font-size: 20px;
   font-weight: bold;
   padding-bottom: 8px;
 }
@@ -16,7 +29,7 @@
 }
 
 .review-headline{
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
 }
 
@@ -36,6 +49,8 @@
   justify-content: left;
 }
 .review-content{
+  font-size: 14px;
+  font-weight: 500;
   padding:8px 0;
 }
 
