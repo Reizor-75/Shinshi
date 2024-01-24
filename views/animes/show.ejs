@@ -15,7 +15,7 @@
         <div class="anime-rating">Rating: <%= anime.rating ? anime.rating : "N/A" %> </div>
       </div>
       <div class="section2">
-        <!-- <div>Studio</div> -->
+        <div>Studio: </div>
         <div><%= anime.ongoing ? 'Ongoing' : 'Completed' %> </div>
       </div>
       <div class="section3">Released: <%= anime.releaseYear.getFullYear()+1%> </div>
@@ -23,6 +23,44 @@
         <div>Genre: <%= anime.genre %></div> 
         <div class="admin-buttons">
           <% if (user?.profile.role >500) { %>
+            <button popovertarget="edit-popup" class="admin-edit-button">📝</button>
+            <div popover="auto" id="edit-popup">
+              <form 
+                id="edit-review-form"
+                action="<%= anime._id %>/edit?_method=PUT"
+                method="POST"
+              >
+                <div>Edit Anime</div>
+                <div class="edit-inputs"> 
+                  <!-- title -->
+                  <div class="edit-form-top">
+                    <div>
+                      <label for="title-input">Title:</label>
+                      <input type="text" name="title" value="<%= anime.title %>" id="title-input">
+                    </div>
+                    <!-- releaseYear -->
+                    <div>
+                      <label for="release-year-input">Release Year:</label>
+                      <input type="text" name="releaseYear" value="<%= anime.releaseYear.getFullYear() %>" id="release-year-input">
+                    </div>
+                    <!-- ongoing -->
+                    <div>
+                      <label for="ongoing-input">Ongoing:</label>
+                      <input type="checkbox" name="ongoing" id="ongoing-input">
+                    </div>
+                  </div>
+                  <!-- image url -->
+                  <div class="url">
+                    <label for="url-input">Image URL:</label>
+                    <input type="text" name="imageURL" value="<%= anime.imageURL %>" id="url-input">
+                  </div>
+                </div>
+                <div class="bottom-row">
+                  <button type="submit">Update</button>
+                </div>
+              </form>
+            </div>
+            <!-- admin delete -->
             <form action="<%= anime._id %>/?_method=DELETE" method="POST">
               <button class="admin-delete-button">🗑️</button>
             </form>

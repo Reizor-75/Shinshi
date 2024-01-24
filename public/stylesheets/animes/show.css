@@ -32,7 +32,7 @@ a{
 
 .section2{
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
   align-items: flex-end;
   font-weight: bold;
 }
@@ -154,6 +154,9 @@ button:hover{
   justify-content: right;
 }
 
+.admin-buttons{
+  display: flex;
+}
 .admin-edit-button{
   font-size: 10px;
   padding: 4px;
@@ -164,4 +167,11 @@ button:hover{
   font-size: 10px;
   padding: 4px;
   margin: 0;
+}
+.edit-inputs{
+  display: flex;
+  flex-direction: column;
+}
+.edit-form-top{
+  display: flex;
 }
