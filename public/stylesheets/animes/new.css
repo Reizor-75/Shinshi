@@ -1,8 +1,10 @@
-#new-form{  
+.add-container{
+  width: 60%;  
+  min-width: 450px;
   background-color: #2e0c3d25;
-  font-size: 16px;
-  font-weight: bold;
-  width: 60%;
+  font-size: 24px;
+  font-weight: 500;
+  /* height: 80vh; */
 }
 
 .title{
@@ -15,18 +17,33 @@
 }
 
 .new-form-body{
-  padding: 16px;
+  margin: 24px;
 }
 .new-form-top{
+  margin: 8px 0;
   display: flex;
+  align-items: center;
 }
-.new-form-top> div{  
-  margin-right: 8px;
+
+input{  
+  padding:8px;
+  margin: 0 4px;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #d5e8d4;
+  border: 1px solid #2e0c3d;
+}
+
+.url{
+  display: flex;
+  margin: 8px 0;
 }
 
 #url-input{
-  width:80%;
-  margin: 8px 0;
+  width: 85%;
 }
 
 fieldset{

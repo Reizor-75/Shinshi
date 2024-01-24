@@ -2,7 +2,20 @@
 <%- include('./partials/nav') %>
 
 <main>
-  <h1>Trending</h1>
+  <h1>Recent Anime </h1>
+  <% animes.forEach(anime => { %>
+    <a class="text-decoration-none" href="/catalog/<%= anime._id %>">
+      <div class="card">
+        <img 
+          src="<%= anime.imageURL %>" 
+          alt="<%= anime.title %>'s cover image"
+        >
+        <div class="card-body">
+          <h1 class="card-title"><%= anime.title %></h1>
+        </div>
+      </div>
+    </a>
+  <% }) %>
 </main>
 
 <%- include('./partials/footer') %>

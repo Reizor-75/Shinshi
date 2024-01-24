@@ -3,66 +3,65 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <form id="new-form" action="/catalog" method="POST">
+  <div class="add-container">
     <div class="title"><%= title %></div>
-    <div class="new-form-body">
-      <div class="new-form-top">
-        <!-- title -->
-        <div>
+    <form id="new-form" action="/catalog" method="POST">
+      <div class="new-form-body">
+        <div class="new-form-top">
+          <!-- title -->
           <label for="title-input">Title:</label>
           <input type="text" name="title" id="title-input">
-        </div>
-        <!-- releaseYear -->
-        <div>
+
+          <!-- releaseYear -->
           <label for="release-year-input">Release Year:</label>
           <input type="text" name="releaseYear" id="release-year-input">
-        </div>
-        <!-- ongoing -->
-        <div>
+
+          <!-- ongoing -->
           <label for="ongoing-input">Ongoing:</label>
           <input type="checkbox" name="ongoing" id="ongoing-input">
         </div>
+        <!-- image url -->
+        <div class="url">
+          <label for="url-input">Image URL:</label>
+          <input type="text" name="imageURL" id="url-input">
+        </div>
+        <!-- genre -->
+        <fieldset>
+          <legend>Genres</legend>
+          <div>
+            <input type="checkbox" id="action-checkbox" name="genres" value="Action" />
+            <label for="action-checkbox">Action</label>
+          </div>
+          <div>
+            <input type="checkbox" id="comedy-checkbox" name="genres" value="Comedy" />
+            <label for="comedy-checkbox">Comedy</label>
+          </div>      
+          <div>
+            <input type="checkbox" id="fantasy-checkbox" name="genres" value="Fantasy" />
+            <label for="fantasy-checkbox">Fantasy</label>
+          </div>
+          <div>
+            <input type="checkbox" id="romance-checkbox" name="genres" value="Romance" />
+            <label for="romance-checkbox">Romance</label>
+          </div>
+          <div>
+            <input type="checkbox" id="Sci-Fi-checkbox" name="genres" value="Sci-Fi" />
+            <label for="Sci-Fi-checkbox">Sci-Fi</label>
+          </div>
+          <div>
+            <input type="checkbox" id="Mystery-checkbox" name="genres" value="Mystery" />
+            <label for="Mystery-checkbox">Mystery</label>
+          </div>
+          <div>
+            <input type="checkbox" id="Coming-Of-Age-checkbox" name="genres" value="Coming Of Age" />
+            <label for="Coming-Of-Age-checkbox">Coming Of Age</label>
+          </div>
+        </fieldset>    
+        <div class="bottom-row">
+          <button type="submit">Add Anime</button>
+        </div>
       </div>
-      <!-- image url -->
-      <div class="url">
-        <label for="url-input">Image URL:</label>
-        <input type="text" name="imageURL" id="url-input">
-      </div>
-      <!-- genre -->
-      <fieldset>
-        <legend>Genres</legend>
-        <div>
-          <input type="checkbox" id="action-checkbox" name="genres" value="Action" />
-          <label for="action-checkbox">Action</label>
-        </div>
-        <div>
-          <input type="checkbox" id="comedy-checkbox" name="genres" value="Comedy" />
-          <label for="comedy-checkbox">Comedy</label>
-        </div>      
-        <div>
-          <input type="checkbox" id="fantasy-checkbox" name="genres" value="Fantasy" />
-          <label for="fantasy-checkbox">Fantasy</label>
-        </div>
-        <div>
-          <input type="checkbox" id="romance-checkbox" name="genres" value="Romance" />
-          <label for="romance-checkbox">Romance</label>
-        </div>
-        <div>
-          <input type="checkbox" id="Sci-Fi-checkbox" name="genres" value="Sci-Fi" />
-          <label for="Sci-Fi-checkbox">Sci-Fi</label>
-        </div>
-        <div>
-          <input type="checkbox" id="Mystery-checkbox" name="genres" value="Mystery" />
-          <label for="Mystery-checkbox">Mystery</label>
-        </div>
-        <div>
-          <input type="checkbox" id="Coming-Of-Age-checkbox" name="genres" value="Coming Of Age" />
-          <label for="Coming-Of-Age-checkbox">Coming Of Age</label>
-        </div>
-      </fieldset>    
-      <div class="bottom-row">
-        <button type="submit">Add Anime</button>
-      </div>
-    </div>
-  </form>
+    </form>
+  </div>
+</main>
 <%- include('../partials/footer') %>

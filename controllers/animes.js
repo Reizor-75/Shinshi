@@ -2,7 +2,14 @@ import { Anime } from "../models/anime.js"
 import { Profile } from "../models/profile.js";
 
 function index (req, res) {
-  res.render('index', { title: 'Home Page' })
+  Anime.find({})
+  .sort("releaseYear")
+  .then(animes =>{
+    res.render('index', { 
+      title: 'Home Page' ,
+      animes,
+    })
+  })
 }
 
 function displayCatalog(req, res){

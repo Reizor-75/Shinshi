@@ -21,10 +21,17 @@ body {
   min-width: 450px;
   font-size: 20px;
   font-weight: 500;
+  display: flex;
+  flex-direction: column;
 }
 
 a{
-  text-decoration: none;
+  text-decoration: none;  
+  color: #2e0c3d;
+}
+
+a:hover{  
+  color: #d5e8d4;
 }
 
 nav {
@@ -51,6 +58,38 @@ main {
 #mascot{
   height: 50px;
   margin: 0 4px;
+}
+
+footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #2e0c3d;
+  background-color: #EE8917;
+  padding: 8px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.footer-text{  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.github-link{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 4px;
+}
+
+#sitting-pigeon{
+  width: 50px;
+  padding:4px;
+  margin: 0 4px;
+  background-color: #d5e8d4;
+  border-radius: 50%;
 }
 
 .website-title{

@@ -20,7 +20,7 @@ const animeSchema = new Schema({
   imageURL: String,
   genres: [{
     type: String,
-    enum: ['Action', 'Comedy', 'Fantasy', 'Romance'],
+    enum: ['Action', 'Comedy', 'Fantasy', 'Romance', 'Sci-Fi', 'Mystery', 'Coming Of Age'],
   }],
   rating: Number,
   ongoing: Boolean,
