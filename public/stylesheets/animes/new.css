@@ -19,9 +19,15 @@
 }
 .new-form-top{
   display: flex;
-  justify-content: space-between;
+}
+.new-form-top> div{  
+  margin-right: 8px;
 }
 
+#url-input{
+  width:80%;
+  margin: 8px 0;
+}
 
 fieldset{
   margin: 8px 0;
