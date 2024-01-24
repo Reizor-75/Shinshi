@@ -14,6 +14,8 @@ router.get('/reviews', isLoggedIn, profilesCtrl.reviews)
 router.post('/watched', profilesCtrl.addWatchList)
 // PUT localhost:3000/profiles/reviews/:animeId/:reviewId
 router.put('/reviews/:animeId/:reviewId', isLoggedIn, profilesCtrl.updateReview)
+// DELETE localhost:3000/profiles/watched/:animeId
+router.delete('/watched/:animeId', isLoggedIn, profilesCtrl.deleteWatchList)
 // DELETE localhost:3000/profiles/reviews/:animeId/:reviewId
 router.delete('/reviews/:animeId/:reviewId', isLoggedIn, profilesCtrl.deleteReview)
 

@@ -34,6 +34,10 @@
                 </div>
                 <div class="card-body-right">Rating: <%= watched.rating ? watched.rating : "N/A" %></div>
               </div>
+              <!-- delete -->
+              <form action="watched/<%= watched._id %>/?_method=DELETE" method="POST">
+                <button class="delete-button">🗑️</button>
+              </form>
             </div>
           </a>
           <hr/>

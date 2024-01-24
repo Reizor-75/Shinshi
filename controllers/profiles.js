@@ -54,6 +54,10 @@ function addWatchList(req, res){
   });
 }
 
+function deleteWatchList(req, res){
+  console.log("💩")
+}
+
 function reviews(req, res){
   Profile.findById(req.user.profile._id)
   .populate("animeReviews")
@@ -137,6 +141,7 @@ export {
   index,
   watchList,
   addWatchList,
+  deleteWatchList,
   reviews,
   updateReview,
   deleteReview,
