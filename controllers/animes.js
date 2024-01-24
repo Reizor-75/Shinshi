@@ -89,6 +89,23 @@ function show(req, res){
   });
 }
 
+function update(req, res){
+  if(req.user.profile.role > 500){
+    req.body.ongoing = !!req.body.ongoing;
+    Anime.findByIdAndUpdate(req.params.animeId, req.body, {new: true})
+    .then(anime =>{    
+      res.redirect(`/catalog/${anime._id}`)   
+    })
+    .catch(err => {
+      console.log(err);
+      res.redirect('/');
+    })
+  }
+  else {
+    throw new Error('🚫 Not authorized 🚫');
+  }
+}
+
 function createReview(req, res){  
   Anime.findById(req.params.animeId)
   .then(anime =>{
@@ -178,12 +195,16 @@ function updateReview(req, res){
         res.redirect(`/catalog/${anime._id}`)
       })
       .catch(err => {
-        console.log(err)
-        res.redirect('//')
+        console.log(err);
+        res.redirect('/');
       })
     } else {
-      throw new Error('🚫 Not authorized 🚫')
+      throw new Error('🚫 Not authorized 🚫');
     }
+  })
+  .catch(err => {
+    console.log(err);
+    res.redirect('//');
   })
 }
 
@@ -194,6 +215,7 @@ export {
   deleteAnime as delete,
   create,
   show,
+  update,
   createReview,
   deleteReview,
   updateReview,
