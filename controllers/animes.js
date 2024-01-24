@@ -3,7 +3,7 @@ import { Profile } from "../models/profile.js";
 
 function index (req, res) {
   Anime.find({})
-  .sort("releaseYear")
+  .sort({releaseYear: -1})
   .then(animes =>{
     res.render('index', { 
       title: 'Home Page' ,
