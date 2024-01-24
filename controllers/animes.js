@@ -36,6 +36,17 @@ function newAnime(req, res){
   })
 }
 
+function deleteAnime(req, res){
+  Anime.findByIdAndDelete(req.params.animeId)
+  .then(() =>{
+    res.redirect(`/catalog`)       
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  });
+}
+
 function create(req, res){
   Profile.findById(req.user.profile._id)
   .then(profile =>{    
@@ -180,9 +191,10 @@ export {
   index,
   displayCatalog,
   newAnime as new,
+  deleteAnime as delete,
   create,
   show,
   createReview,
-  deleteReview as delete,
+  deleteReview,
   updateReview,
 }

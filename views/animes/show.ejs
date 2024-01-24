@@ -20,7 +20,14 @@
       </div>
       <div class="section3">Released: <%= anime.releaseYear.getFullYear()+1%> </div>
       <div class="section4">
-        <div>Genre: <%= anime.genre %></div>   
+        <div>Genre: <%= anime.genre %></div> 
+        <div class="admin-buttons">
+          <% if (user?.profile.role >500) { %>
+            <form action="<%= anime._id %>/?_method=DELETE" method="POST">
+              <button class="admin-delete-button">🗑️</button>
+            </form>
+          <% } %>
+        </div>
       </div>
     </div>
     <!-- insert cast -->

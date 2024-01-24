@@ -18,9 +18,10 @@ router.post('/catalog', isAdmin, animesCtrl.create)
 router.post('/catalog/:animeId/reviews', isLoggedIn, animesCtrl.createReview)
 // PUT localhost:3000/catalog/:animeId/reviews/:reviewId
 router.put('/catalog/:animeId/reviews/:reviewId', isLoggedIn, animesCtrl.updateReview)
+// DELETE http://localhost:3000/catalog/:animeId
+router.delete('/catalog/:animeId/', isLoggedIn, animesCtrl.delete)
 // DELETE http://localhost:3000/catalog/:animeId/reviews
-router.delete('/catalog/:animeId/reviews/:reviewId', isLoggedIn, animesCtrl.delete)
-
+router.delete('/catalog/:animeId/reviews/:reviewId', isLoggedIn, animesCtrl.deleteReview)
 
 export {
   router

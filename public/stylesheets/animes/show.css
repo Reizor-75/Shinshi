@@ -42,7 +42,11 @@ a{
   justify-content: left;
   align-items: flex-end;
 }
-
+.section4{  
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
 .review-header{  
   display: flex;
   justify-content: space-between;
@@ -99,7 +103,6 @@ button:hover{
   align-items: flex-end;
 }
 
-
 .alter-buttons{  
   display: flex;
   justify-content: left;
@@ -149,4 +152,16 @@ button:hover{
 .bottom-row{
   display: flex;
   justify-content: right;
+}
+
+.admin-edit-button{
+  font-size: 10px;
+  padding: 4px;
+  margin: 0;
+}
+
+.admin-delete-button{
+  font-size: 10px;
+  padding: 4px;
+  margin: 0;
 }
