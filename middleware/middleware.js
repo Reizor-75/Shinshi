@@ -10,7 +10,7 @@ function isLoggedIn(req, res, next) {
 }
 
 function isAdmin(req, res, next){
-  if (req.isAuthenticated() && req.user.profile.role === "admin") return next()
+  if (req.isAuthenticated() && req.user.profile.role > 500) return next()
   res.redirect('/')
 }
 

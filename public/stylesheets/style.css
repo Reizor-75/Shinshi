@@ -21,7 +21,9 @@ body {
   font-size: 20px;
   font-weight: 400;
 }
-
+a{
+  text-decoration: none;
+}
 nav {
   background-color: #2e0c3d;
   color: #ee8917;
@@ -41,6 +43,7 @@ main {
 
 .website-title{
   width:15%;
+  color: #ee8917;
   font-size: 36px;
   font-weight: 900;
 }

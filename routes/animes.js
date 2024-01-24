@@ -9,11 +9,11 @@ router.get('/', animesCtrl.index)
 // GET http://localhost:3000/catalog
 router.get('/catalog', animesCtrl.displayCatalog)
 // GET http://localhost:3000/new
-router.get('/new', animesCtrl.new)
+router.get('/new',isAdmin, animesCtrl.new)
 // GET http://localhost:3000/catalog/:animeId
 router.get('/catalog/:animeId', animesCtrl.show)
 // POST http://localhost:3000/catalog
-router.post('/catalog', animesCtrl.create)
+router.post('/catalog', isAdmin, animesCtrl.create)
 // POST http://localhost:3000/catalog/:animeId/reviews
 router.post('/catalog/:animeId/reviews', isLoggedIn, animesCtrl.createReview)
 // PUT localhost:3000/catalog/:animeId/reviews/:reviewId
