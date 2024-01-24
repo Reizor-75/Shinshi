@@ -18,7 +18,7 @@ const animeSchema = new Schema({
   },
   releaseYear: Date,
   imageURL: String,
-  genre: [{
+  genres: [{
     type: String,
     enum: ['Action', 'Comedy', 'Fantasy', 'Romance'],
   }],
