@@ -3,12 +3,12 @@
 <%- include('../partials/nav') %>
 
 <main> 
-  <img 
+  <div class="show-content">
+    <img 
       src="<%= anime.imageURL %>" 
       alt="<%= anime.title %>'s cover image"
       class="anime-image"
-  >
-  <div class="show-content">
+    >
     <div class="anime-info">
       <div class="title-section">
         <div class="anime-title"><%= anime.title %></div>
@@ -18,7 +18,7 @@
         <div>Studio: </div>
         <div><%= anime.ongoing ? 'Ongoing' : 'Completed' %> </div>
       </div>
-      <div class="section3">Released: <%= anime.releaseYear.getFullYear()+1%> </div>
+      <div class="section3">Released: <%= anime.releaseYear.getFullYear()%> </div>
       <div class="section4">
         <div>Genre: <%= anime.genres %></div> 
         <div class="admin-buttons">

@@ -6,6 +6,7 @@ a{
   flex-direction: column;
   justify-content: center;
   width: 60%;
+  min-width: 450px;
   font-size: 16px;
   font-weight: bold;
   background-color: #2e0c3d25;
@@ -15,7 +16,7 @@ a{
   padding: 16px;
 }
 .anime-image{
-  width: 60%;
+  width: 100%;
   overflow: hidden;
 }
 

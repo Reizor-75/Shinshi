@@ -5,6 +5,7 @@ a{
 
 .catalog-container{
   width: 65%;
+  min-width: 450px;
   padding-bottom: 20px;
   background-color: #2e0c3d25;
 }

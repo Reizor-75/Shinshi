@@ -138,6 +138,7 @@ hr{
 .option:hover{    
   color: #2e0c3d;
   background-color: #ee8917;
+  border: solid 1px #2e0c3d ;
 }
 
 .logout{    
@@ -148,5 +149,4 @@ hr{
 .logout:hover{  
   color: #2e0c3d;
   background-color: #d5e8d4;
-  border: solid 1px #2e0c3d ;
 }
