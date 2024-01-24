@@ -3,8 +3,8 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1><%= title %></h1>
   <div class="review-container">
+  <div class="title"><%= title %></div>
     <% if (!profile.animeReviews.length) { %>
       <h2>No Reviews</h2>
     <% } else {%>
