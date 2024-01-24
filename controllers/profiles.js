@@ -29,6 +29,33 @@ function watchList(req, res){
   });
 }
 
+function createWatchList(req, res){
+  Profile.findById(req.user.profile._id)
+  .then(profile =>{
+    //req.body should return anime
+    Anime.findById(req.body)
+    .then(anime =>{
+      profile.watchedList.push(anime._id);
+      profile.save()
+      .then(()=>{
+        res.redirect("/profiles/watched");
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect("/")
+      });
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect("/")
+    });
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/")
+  });
+}
+
 function reviews(req, res){
   Profile.findById(req.user.profile._id)
   .populate("animeReviews")
@@ -111,7 +138,8 @@ function deleteReview(req, res){
 export {
   index,
   watchList,
+  createWatchList,
   reviews,
   updateReview,
-  deleteReview
+  deleteReview,
 }
