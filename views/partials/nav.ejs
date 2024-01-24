@@ -13,11 +13,13 @@
         </a>
       <% } %>
       <% if (user) { %>    
-        <a href="/profiles" class="profile"> Profile
-        </a>
-        <a href="/auth/logout" class="logout">
-          <button class="logout" type="submit">Logout</button>
-        </a>
+        <div class="profile-interations">
+          <a href="/profiles" class="profile"> Profile
+          </a>
+          <a href="/auth/logout" class="logout">
+            <button class="logout" type="submit">Logout</button>
+          </a>
+        </div>
       <% } else { %>
         <div 
           id="g_id_onload"
