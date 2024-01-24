@@ -157,10 +157,12 @@ button:hover{
 .admin-buttons{
   display: flex;
 }
+
 .admin-edit-button{
   font-size: 10px;
   padding: 4px;
   margin: 0;
+  margin-right: 4px;
 }
 
 .admin-delete-button{
@@ -168,10 +170,17 @@ button:hover{
   padding: 4px;
   margin: 0;
 }
+.edit-title{
+  font-size: 20px;
+  margin-bottom: 4px;
+}
 .edit-inputs{
   display: flex;
   flex-direction: column;
 }
+
 .edit-form-top{
   display: flex;
+  justify-content:space-between;
+  padding-bottom: 8px;
 }
