@@ -12,10 +12,7 @@ const reviewSchema = new Schema({
 })
 
 const animeSchema = new Schema({
-  title:{
-    type:String,
-    required: true
-  },
+  title:{ type:String, required: true},
   releaseYear: Date,
   imageURL: String,
   genres: [{
@@ -25,18 +22,19 @@ const animeSchema = new Schema({
   rating: Number,
   ongoing: Boolean,
   reviews: [reviewSchema],
-  // studio: {
-  //   type: Schema.Types.ObjectId, ref: ""
-  // },
-  // voiceActors: {
-  //   type: Schema.Types.ObjectId, ref: ""
-  // },
-
+  /*Ice box
+    studio: {
+      type: Schema.Types.ObjectId, ref: ""
+    },
+    voiceActors: {
+      type: Schema.Types.ObjectId, ref: ""
+    },
+  */
 },{
   timestamps: true
 })
 
-const Anime = mongoose.model("Anime", animeSchema)
+const Anime = mongoose.model("Anime", animeSchema);
 
 export{
   Anime
