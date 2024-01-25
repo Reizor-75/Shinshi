@@ -54,7 +54,6 @@
   justify-content: left;
 }
 
-
 button{
   display: flex;
   justify-content: right;
@@ -99,6 +98,7 @@ button:hover{
   height: 100px;
   text-align: left;
 }
+
 .bottom-row{
   display: flex;
   justify-content: right;
@@ -108,4 +108,8 @@ button:hover{
   font-size: 16px;
   font-weight: bold;
   
+}
+
+.rating-input{
+  width:15%;
 }

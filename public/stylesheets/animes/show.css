@@ -51,6 +51,22 @@
   justify-content: space-between;
   align-items: flex-end;
 }
+
+input{  
+  border: 1px solid #2e0c3d;
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: 500;
+  width: 100%;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #EE8917 ;
+  border: 1px solid #2e0c3d;
+}
+
 .review-header{  
   display: flex;
   justify-content: space-between;
@@ -159,19 +175,11 @@
   align-items: center;
   margin-bottom: 4px;
 }
-
-input{  
-  padding: 4px;
-  font-size: 14px;
-  font-weight: 500;
-  margin: 0 4px;
-  margin-right: auto;
+.edit-input > label{  
+  white-space: nowrap;  
+  margin-right: 4px;
 }
 
-input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
-  accent-color: #EE8917 ;
-  border: 1px solid #2e0c3d;
+.rating-input{
+  width:15%;
 }
-

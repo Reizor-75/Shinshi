@@ -20,6 +20,9 @@
   align-items: center;
   margin-bottom: 4px;
 }
+.add-input > label{  
+  white-space: nowrap
+}
 
 label{
   font-weight: bold;
@@ -30,8 +33,9 @@ input{
   font-size: 14px;
   font-weight: 500;
   margin: 0 4px;
-  margin-right: auto;
+  width: 100%;
 }
+
 
 input[type="checkbox"] {
   width: 20px;
