@@ -1,5 +1,5 @@
-import { Profile } from "../models/profile.js"
-import { Anime } from "../models/anime.js"
+import { Profile } from "../models/profile.js";
+import { Anime } from "../models/anime.js";
 
 function index(req, res) {
   Profile.findById(req.user?.profile._id)
@@ -7,7 +7,7 @@ function index(req, res) {
     res.render('profiles/index', {
       profile,
       title: `${profile.name}'s Profile`
-    })
+    });
   })
   .catch(err => {
     console.log(err);
@@ -32,6 +32,10 @@ function watchList(req, res){
       res.redirect("/");
     });
   })
+  .catch(err => {
+    console.log(err);
+    res.redirect("/");
+  });
 }
 
 function addWatchList(req, res){
@@ -102,7 +106,7 @@ function updateReview(req, res){
       .catch(err => {
         console.log(err);
         res.redirect('/');
-      })
+      });
     } else {
       throw new Error('🚫 Not authorized 🚫');
     }
@@ -112,6 +116,7 @@ function updateReview(req, res){
     res.redirect("/");
   });
 }
+
 function deleteReview(req, res){
   //delete the review in anime
   Profile.findById(req.user?.profile._id)
