@@ -21,6 +21,7 @@
 .new-form-top{
   margin: 8px 0;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 }
 
@@ -39,10 +40,6 @@ input[type="checkbox"] {
 .url{
   display: flex;
   margin: 8px 0;
-}
-
-#url-input{
-  width: 85%;
 }
 
 fieldset{
