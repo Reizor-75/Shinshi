@@ -1,9 +1,9 @@
 
 <img src="./public/images/ShinshiLogo.png" alt="Shinshi Logo" width="400"/>
 
-<span style="color:#EE8917">**Shinshi**</span> is a website that host detailed information about different animes to its community. 
+<code style="color:#EE8917">**Shinshi**</code> is a website that host detailed information about different animes to its community. 
 
-<span style="color:#EE8917">**Shinshi**</span> borrows its name from the Japanese word for ‘divine messenger’ or <span style="color:#EE8917">神使</span>. In Japanese mythology, a shinshi can be any animal and they are used to transmit divine will or to bear oracles from Japanese Gods. <span style="color:#EE8917">**Shinshi's**</span> pigeon mascot is meant to bring information and reviews about Anime to its users.
+<code style="color:#EE8917">**Shinshi**</code> borrows its name from the Japanese word for ‘divine messenger’ or <code style="color:#EE8917">神使</code>. In Japanese mythology, a shinshi can be any animal and they are used to transmit divine will or to bear oracles from Japanese Gods. <code style="color:#EE8917">**Shinshi's**</code> pigeon mascot is meant to bring information and reviews about Anime to its users.
 
 ![Shinshi Show view](./public/images/ShowView.png)
 
