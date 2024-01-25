@@ -103,11 +103,11 @@ button:hover{
   display: flex;
   justify-content: right;
 }
+
 .username{
   padding-right: 8px;
   font-size: 16px;
   font-weight: bold;
-  
 }
 
 .rating-input{

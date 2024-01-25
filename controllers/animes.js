@@ -1,15 +1,15 @@
 import { Anime } from "../models/anime.js";
 import { Profile } from "../models/profile.js";
-import Jikan from 'jikan4.js'
+import Jikan from 'jikan4.js';
 
-const client = new Jikan.Client()
+const client = new Jikan.Client();
 
 async function printSearch (searchString) {
   const result = (await client.anime.search(searchString, null, null, 1)).map((anime) => {
-    let genreList = []
-    anime.genres.forEach(genre => {genreList.push( genre.name)})
+    let genreList = [];
+    anime.genres.forEach(genre => {genreList.push( genre.name)});
     let studioList = [];    
-    anime.studios.forEach(studio => {studioList.push(studio.name)})
+    anime.studios.forEach(studio => {studioList.push(studio.name)});
     return {
       title: anime.title.english,
       year: anime.year,
@@ -18,9 +18,8 @@ async function printSearch (searchString) {
       genres: genreList,
       studios: studioList
     }
-  })
-
-  console.table(result)
+  });
+  console.table(result);
 }
 
 function testSearch (req, res){
@@ -34,17 +33,6 @@ function index (req, res) {
     res.render('index', { 
       title: 'Recent Animes',
       animes,
-    })
-  })
-}
-
-function displayCatalog(req, res){
-  Anime.find({})
-  .sort({releaseYear: -1})
-  .then(animes => {
-    res.render("animes/catalog", {
-      animes,
-      title: "Catalog Page"
     });
   })
   .catch(err => {
@@ -53,6 +41,22 @@ function displayCatalog(req, res){
   });
 }
 
+function displayCatalog(req, res){
+  Anime.find({})
+  .sort({releaseYear: -1})
+  .then(animes => {
+    res.render("animes/catalog", {
+      animes,
+      title: "Catalog"
+    });
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  });
+}
+
+//admin
 function newAnime(req, res){
   Profile.findById(req.user.profile._id)
   .then(profile =>{    
@@ -67,13 +71,25 @@ function newAnime(req, res){
   .catch(err => {
     console.log(err);
     res.redirect('/');
-  })
+  });
 }
 
-function deleteAnime(req, res){
-  Anime.findByIdAndDelete(req.params.animeId)
-  .then(() =>{
-    res.redirect(`/catalog`)       
+//admin
+function deleteAnime(req, res){  
+  Profile.findById(req.user.profile._id)
+  .then(profile =>{    
+    if(profile.role > 500){
+      Anime.findByIdAndDelete(req.params.animeId)
+      .then(() =>{
+        res.redirect(`/catalog`);      
+      })
+      .catch(err => {
+        console.log(err);
+        res.redirect('/');
+      });
+    } else{
+      throw new Error ('🚫 Not authorized 🚫');
+    }
   })
   .catch(err => {
     console.log(err)
@@ -81,12 +97,13 @@ function deleteAnime(req, res){
   });
 }
 
+//admin
 function create(req, res){  
   Profile.findById(req.user.profile._id)
   .then(profile =>{    
     if(profile.role> 500){
       req.body.ongoing = !!req.body.ongoing;  
-      if(!req.body.releaseYear)req.body.releaseYear = new Date();
+      if(!req.body.releaseYear) req.body.releaseYear = new Date();
       Anime.create(req.body)
       .then(() => {
         res.redirect(`/catalog`);
@@ -112,31 +129,33 @@ function show(req, res){
     res.render('animes/show', {
       anime,
       title: 'Show Detail', 
-    })
+    });
   })
   .catch(err => {
-    console.log(err)
-    res.redirect('/')
+    console.log(err);
+    res.redirect('/');
   });
 }
 
+//admin
 function update(req, res){
   if(req.user.profile.role > 500){
     req.body.ongoing = !!req.body.ongoing;
     Anime.findByIdAndUpdate(req.params.animeId, req.body, {new: true})
     .then(anime =>{    
-      res.redirect(`/catalog/${anime._id}`)   
+      res.redirect(`/catalog/${anime._id}`) ;  
     })
     .catch(err => {
       console.log(err);
       res.redirect('/');
-    })
+    });
   }
   else {
     throw new Error('🚫 Not authorized 🚫');
   }
 }
 
+//user
 function createReview(req, res){  
   Anime.findById(req.params.animeId)
   .then(anime =>{
@@ -151,29 +170,30 @@ function createReview(req, res){
         profile.animeReviews.push(anime._id);
         profile.save()
         .then(()=>{
-          res.redirect(`/catalog/${anime._id}`)   
+          res.redirect(`/catalog/${anime._id}`);
         })
         .catch(err => {
-          console.log(err)
-          res.redirect('/')
-        })
+          console.log(err);
+          res.redirect('/');
+        });
       })
       .catch(err => {
-        console.log(err)
-        res.redirect('/')
+        console.log(err);
+        res.redirect('/');
       });
     })
     .catch(err => {
-      console.log(err)
-      res.redirect('/')
+      console.log(err);
+      res.redirect('/');
     });
   })
   .catch(err => {
-    console.log(err)
-    res.redirect('/')
+    console.log(err);
+    res.redirect('/');
   });
 }
 
+//user
 function deleteReview(req, res){
   Anime.findById(req.params.animeId)
   .then(anime =>{
@@ -181,23 +201,23 @@ function deleteReview(req, res){
     if(review.user.equals(req.user.profile._id)){
       Profile.findById(req.user.profile._id)
       .then(profile =>{
-        const index = profile.animeReviews.indexOf(anime._id)
+        const index = profile.animeReviews.indexOf(anime._id);
         profile.animeReviews.splice(index, 1);
         profile.save()
         .then(() =>{
           anime.reviews.remove(review);
           anime.save()
           .then(()=>{        
-            res.redirect(`/catalog/${anime._id}`)
+            res.redirect(`/catalog/${anime._id}`);
           })
           .catch(err => {
-            console.log(err)
-            res.redirect('/')
+            console.log(err);
+            res.redirect('/');
           });          
         })
         .catch(err => {
-          console.log(err)
-          res.redirect('/')
+          console.log(err);
+          res.redirect('/');
         });
       })
       .catch(err => {
@@ -206,15 +226,16 @@ function deleteReview(req, res){
       });
     }
     else{
-      throw new Error ('🚫 Not authorized 🚫')
+      throw new Error ('🚫 Not authorized 🚫');
     }
   })
   .catch(err => {
-    console.log(err)
-    res.redirect('/')
+    console.log(err);
+    res.redirect('/');
   });
 }
 
+//user
 function updateReview(req, res){
   Anime.findById(req.params.animeId)
   .then(anime =>{
@@ -223,12 +244,12 @@ function updateReview(req, res){
       review.set(req.body);
       anime.save()
       .then(() => {
-        res.redirect(`/catalog/${anime._id}`)
+        res.redirect(`/catalog/${anime._id}`);
       })
       .catch(err => {
         console.log(err);
         res.redirect('/');
-      })
+      });
     } else {
       throw new Error('🚫 Not authorized 🚫');
     }
@@ -236,7 +257,7 @@ function updateReview(req, res){
   .catch(err => {
     console.log(err);
     res.redirect('//');
-  })
+  });
 }
 
 export {
