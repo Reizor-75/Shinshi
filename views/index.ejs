@@ -3,22 +3,24 @@
 <%- include('./partials/nav') %>
 
 <main>
-  <div class="title"><%= title %></div>
-  <div class="card-container">
-    <% for(let i = 0; i < 10; i++) { %>
-      <% if (animes.length <= i) { break; } %>
-        <a class="text-decoration-none" href="/catalog/<%= animes[i]._id %>">
-        <div class="card">
-          <img 
-            src="<%= animes[i].imageURL %>" 
-            alt="<%= animes[i].title %>'s cover image"
-          >
-          <div class="card-body">
-            <h1 class="card-title"><%= animes[i].title %></h1>
+  <div class="index-container">
+    <div class="title"><%= title %></div>
+    <div class="card-container">
+      <% for(let i = 0; i < 10; i++) { %>
+        <% if (animes.length <= i) { break; } %>
+          <a class="text-decoration-none" href="/catalog/<%= animes[i]._id %>">
+          <div class="card">
+            <img 
+              src="<%= animes[i].imageURL %>" 
+              alt="<%= animes[i].title %>'s cover image"
+            >
+            <div class="card-body">
+              <h1 class="card-title"><%= animes[i].title %></h1>
+            </div>
           </div>
-        </div>
-      </a>
-    <% } %>
+        </a>
+      <% } %>
+    </div>
   </div>
 </main>
 

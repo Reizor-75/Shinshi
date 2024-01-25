@@ -6,7 +6,7 @@ function index (req, res) {
   .sort({releaseYear: -1})
   .then(animes =>{
     res.render('index', { 
-      title: 'Home Page' ,
+      title: 'Recent Animes' ,
       animes,
     })
   })
