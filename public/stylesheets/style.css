@@ -24,20 +24,9 @@ body {
   display: flex;
   flex-direction: column;
 }
-.background-pigeon{
-  display: flex;
-  justify-content: right;
-  margin: 0 16px;
-  opacity: .5;
-}
 
 a{
   text-decoration: none;  
-  color: #2e0c3d;
-}
-
-a:hover{  
-  color: #d5e8d4;
 }
 
 nav {
@@ -129,7 +118,7 @@ footer{
 
 .website-links > a:hover{
   color: #2e0c3d;
-  background-color:#d5e8d4;
+  background-color: #d5e8d4;
 }
 
 button{
@@ -142,8 +131,9 @@ button{
   border-radius: 8px;
   padding: 8px;
   margin: 2px;
-  background-color: #2e0c3d; ;
+  background-color: #2e0c3d;
 }
+
 button:hover{
   color: #2e0c3d;
   background-color: #EE8917; 
@@ -231,5 +221,4 @@ hr{
   font-weight: normal;
   min-height: 50px;
   margin: 8px 0;  
-  /* padding: 8px 0; */
 }
