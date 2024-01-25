@@ -20,6 +20,7 @@
   align-items: center;
   margin-bottom: 4px;
 }
+
 .add-input > label{  
   white-space: nowrap
 }
@@ -35,7 +36,6 @@ input{
   margin: 0 4px;
   width: 100%;
 }
-
 
 input[type="checkbox"] {
   width: 20px;

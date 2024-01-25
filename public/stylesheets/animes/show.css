@@ -15,6 +15,7 @@
   padding: 16px;
   line-height: 1.5;
 }
+
 .anime-image{
   width: 100%;
   overflow: hidden;
@@ -80,6 +81,7 @@ input[type="checkbox"] {
   font-size: 32px;
   font-weight: bold;
 }
+
 .review{
   padding: 16px;
 }
@@ -95,6 +97,7 @@ input[type="checkbox"] {
   font-size: 18px;
   font-weight: bold;
 }
+
 .review-text{
   font-size: 16px;
   font-weight: normal;
@@ -164,6 +167,7 @@ input[type="checkbox"] {
   font-size: 20px;
   margin-bottom: 4px;
 }
+
 .edit-inputs{
   display: flex;
   flex-direction: column;
@@ -175,11 +179,12 @@ input[type="checkbox"] {
   align-items: center;
   margin-bottom: 4px;
 }
+
 .edit-input > label{  
   white-space: nowrap;  
   margin-right: 4px;
 }
 
 .rating-input{
-  width:15%;
+  width: 15%;
 }
