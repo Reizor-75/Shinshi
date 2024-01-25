@@ -3,7 +3,7 @@
 <%- include('./partials/nav') %>
 
 <main>
-  <h1>Recent Anime </h1>
+  <div class="title"><%= title %></div>
   <div class="card-container">
     <% for(let i = 0; i < 10; i++) { %>
       <% if (animes.length <= i) { break; } %>

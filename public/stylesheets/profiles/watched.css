@@ -5,15 +5,6 @@
   background-color: #2e0c3d25;
 }
 
-.title{
-  display: flex;
-  justify-content: center;
-  background-color: #2e0c3d25;
-  font-size: 48px;
-  font-weight: bolder;
-  padding: 8px 0;
-}
-
 .watched-list-input{
   display: flex;
   justify-content: center;

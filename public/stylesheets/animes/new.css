@@ -2,17 +2,8 @@
   width: 60%;  
   min-width: 450px;
   background-color: #2e0c3d25;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
-}
-
-.title{
-  display: flex;
-  justify-content: center;
-  background-color: #2e0c3d25;
-  font-size: 48px;
-  font-weight: bold;
-  padding: 8px 0;
 }
 
 .new-form-body{

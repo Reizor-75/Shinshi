@@ -10,19 +10,10 @@ a{
   background-color: #2e0c3d25;
 }
 
-.title{
-  display: flex;
-  justify-content: center;
-  background-color: #2e0c3d25;
-  font-size: 48px;
-  font-weight: bolder;
-  padding: 8px 0;
-}
-
 .card-container{
   display: flex;
   flex-direction: column;
-  padding:16px;
+  padding: 16px;
 }
 
 .card{

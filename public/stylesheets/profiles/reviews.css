@@ -4,18 +4,11 @@
   padding-bottom: 20px;
   background-color: #2e0c3d25;
 }
-.title{
-  display: flex;
-  justify-content: center;
-  background-color: #2e0c3d25;
-  font-size: 48px;
-  font-weight: bolder;
-  padding: 8px 0;
-}
 
 .anime-image{
   width: 25%;
-  padding-right: 8px ;
+  min-width: 150px;
+  padding-right: 8px;
 }
 .review{
   display: flex;
