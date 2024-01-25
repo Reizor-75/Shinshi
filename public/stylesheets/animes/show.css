@@ -9,9 +9,11 @@
   background-color: #2e0c3d25;
   padding-bottom: 150px;
 }
+
 .anime-info{  
   background-color: #2e0c3d40;
   padding: 16px;
+  line-height: 1.5;
 }
 .anime-image{
   width: 100%;
@@ -24,9 +26,12 @@
   align-items: flex-end;
   font-size: 32px;
   font-weight: bold;
+  margin-bottom: 4px;
 }
+
 .anime-rating{  
   font-size: 20px;
+  padding-bottom: 4px;
 }
 
 .section2{
@@ -79,7 +84,7 @@
   font-weight: normal;
 }
 
-.user{
+.user-controls{
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -132,18 +137,13 @@
   display: flex;
 }
 
-.admin-edit-button{
-  font-size: 10px;
+.admin-button{
+  font-size: 12px;
   padding: 4px;
   margin: 0;
   margin-right: 4px;
 }
 
-.admin-delete-button{
-  font-size: 10px;
-  padding: 4px;
-  margin: 0;
-}
 .edit-title{
   font-size: 20px;
   margin-bottom: 4px;
@@ -173,3 +173,4 @@ input[type="checkbox"] {
   accent-color: #EE8917 ;
   border: 1px solid #2e0c3d;
 }
+

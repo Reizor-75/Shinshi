@@ -14,8 +14,6 @@ html {
 body {
   background-color: #f1f0f6;
   color: #2e0c3d;
-  /* Use a system font, if none are available use any found sans-sarif font */
-  /* font-family: 'Kanit', sans-serif; */
   font-family: 'Fjalla One', sans-serif;
   letter-spacing: 1px;
   margin: 0;
@@ -126,6 +124,7 @@ footer{
   color: #d5e8d4;
   padding: 8px;
   border-radius: 8px;
+  margin: 0 4px;
 }
 
 .website-links > a:hover{
@@ -214,4 +213,23 @@ hr{
 .logout:hover{  
   color: #2e0c3d;
   background-color: #d5e8d4;
+}
+
+.star-icon{  
+  width: 20px;
+  color: #2e0c3d;
+}
+
+.lit{
+  color: #EE8917;
+}
+
+.review-content{
+  line-height: normal;  
+  letter-spacing: 0;
+  font-size: 16px;
+  font-weight: normal;
+  min-height: 50px;
+  margin: 8px 0;  
+  /* padding: 8px 0; */
 }

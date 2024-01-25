@@ -21,7 +21,14 @@
             <div class="review-anime-title"><%= anime.title %></div>
             <div class="review-body-top">          
               <div class="review-headline"><%= review.reviewTitle %></div>
-              <div class="review-rating">Rating: <%= review.rating %></div>
+              <div class="review-rating"> Rating: 
+                <% for(let i = 0; i < review.rating ; i++ ) { %>
+                  <i class="fa-solid fa-star star-icon lit"></i>
+                <% } %>
+                <% for(let i = 0; i < 5-review.rating ; i++ ) { %>
+                  <i class="fa-solid fa-star star-icon"></i>
+                <% } %>
+              </div>
             </div>
             <div class="review-content"><%= review.content %></div>      
             <div class="review-bottom">

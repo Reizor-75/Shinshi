@@ -12,7 +12,20 @@
     <div class="anime-info">
       <div class="title-section">
         <div class="anime-title"><%= anime.title %></div>
-        <div class="anime-rating">Rating: <%= anime.rating ? anime.rating : "N/A" %> </div>
+        <div class="anime-rating">Rating: 
+          <% if (anime.rating) { %>
+            <% for(let i = 0; i < anime.rating ; i++ ) { %>
+              <i class="fa-solid fa-star star-icon lit"></i>
+            <% } %>
+            <% for(let i = 0; i < 5 - anime.rating ; i++ ) { %>
+              <i class="fa-solid fa-star star-icon"></i>
+            <% } %>
+          <% } else {%>
+            <% for(let i = 0; i < 5; i++ ) { %>
+              <i class="fa-solid fa-star star-icon"></i>
+            <% } %>
+          <% } %>
+        </div>
       </div>
       <div class="section2">
         <div>Studio: </div>
@@ -23,7 +36,7 @@
         <div>Genre: <%= anime.genres %></div> 
         <div class="admin-buttons">
           <% if (user?.profile.role >500) { %>
-            <button popovertarget="admin-edit-popup" class="admin-edit-button">📝</button>
+            <button popovertarget="admin-edit-popup" class="admin-button">📝</button>
             <div popover="auto" id="admin-edit-popup">
               <form 
                 id="edit-review-form"
@@ -90,7 +103,7 @@
             </div>
             <!-- admin delete -->
             <form action="<%= anime._id %>/?_method=DELETE" method="POST">
-              <button class="admin-delete-button">🗑️</button>
+              <button class="admin-button">🗑️</button>
             </form>
           <% } %>
         </div>
@@ -132,11 +145,18 @@
           <div class="review">
             <div class="review-topline">
               <div class="review-headline"><%= review.reviewTitle%></div>
-              <div class="review-rating"> Rating: <%= review.rating %></div>
-            </div>
-            <p class="review-text"><%= review.content %></p>
+              <div class="review-rating"> Rating: 
+                <% for(let i = 0; i < review.rating ; i++ ) { %>
+                  <i class="fa-solid fa-star star-icon lit"></i>
+                <% } %>
+                <% for(let i = 0; i < 5-review.rating ; i++ ) { %>
+                  <i class="fa-solid fa-star star-icon"></i>
+                <% } %>
+              </div>
+            </div>            
+            <div class="review-content"><%= review.content %></div>   
             
-            <div class="user">
+            <div class="user-controls">
               <div class="alter-buttons">
                 <% if (review.user.equals(user?.profile._id)) { %>
                   <button popovertarget="edit-popup" class="edit-button">📝</button>

@@ -20,7 +20,20 @@
                 <div class="card-title"><%= anime.title %></div>
                 <div class="card-release"><%= anime.releaseYear.getFullYear()%> </div>
               </div>
-              <div class="card-body-right">Rating: <%= anime.rating ? anime.rating : "N/A" %></div>
+              <div class="anime-rating">Rating: 
+                <% if (anime.rating) { %>
+                  <% for(let i = 0; i < anime.rating ; i++ ) { %>
+                    <i class="fa-solid fa-star star-icon lit"></i>
+                  <% } %>
+                  <% for(let i = 0; i < 5 - anime.rating ; i++ ) { %>
+                    <i class="fa-solid fa-star star-icon"></i>
+                  <% } %>
+                <% } else {%>
+                  <% for(let i = 0; i < 5; i++ ) { %>
+                    <i class="fa-solid fa-star star-icon"></i>
+                  <% } %>
+                <% } %>
+              </div>
             </div>
           </a>
           <hr/>
