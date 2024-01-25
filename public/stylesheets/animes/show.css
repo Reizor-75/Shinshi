@@ -153,18 +153,19 @@
   flex-direction: column;
 }
 
-.edit-form-top{
+.edit-input{
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
   align-items: center;
-  flex-wrap: wrap;
-  margin: 8px 0;
+  margin-bottom: 4px;
 }
 
 input{  
   padding: 4px;
   font-size: 14px;
   font-weight: 500;
+  margin: 0 4px;
+  margin-right: auto;
 }
 
 input[type="checkbox"] {

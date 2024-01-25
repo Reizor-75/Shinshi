@@ -46,24 +46,22 @@
                 <div class="edit-title">Edit Anime</div>
                 <div class="edit-inputs"> 
                   <!-- title -->
-                  <div class="edit-form-top">
-                    <div>
-                      <label for="title-input">Title:</label>
-                      <input type="text" name="title" value="<%= anime.title %>" id="title-input">
-                    </div>
-                    <!-- releaseYear -->
-                    <div>
-                      <label for="release-year-input">Release Year:</label>
-                      <input type="text" name="releaseYear" value="<%= anime.releaseYear.getFullYear() %>" id="release-year-input">
-                    </div>
-                    <!-- ongoing -->
-                    <div>
-                      <label for="ongoing-input">Ongoing:</label>
-                      <input type="checkbox" name="ongoing" id="ongoing-input">
-                    </div>
+                  <div class="edit-input">
+                    <label for="title-input">Title:</label>
+                    <input type="text" name="title" value="<%= anime.title %>" id="title-input">
+                  </div>
+                  <!-- releaseYear -->
+                  <div class="edit-input">
+                    <label for="release-year-input">Release Year:</label>
+                    <input type="text" name="releaseYear" value="<%= anime.releaseYear.getFullYear() %>" id="release-year-input">
+                  </div>
+                  <!-- ongoing -->
+                  <div class="edit-input">
+                    <label for="ongoing-input">Ongoing:</label>
+                    <input type="checkbox" name="ongoing" id="ongoing-input">
                   </div>
                   <!-- image url -->
-                  <div class="url">
+                  <div class="edit-input">
                     <label for="url-input">Image URL:</label>
                     <input type="text" name="imageURL" value="<%= anime.imageURL %>" id="url-input">
                   </div>

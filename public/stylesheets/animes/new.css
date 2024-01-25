@@ -9,16 +9,28 @@
 .new-form-body{
   margin: 24px;
 }
-.new-form-top{
-  margin: 8px 0;
+.add-inputs{
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.add-input{
+  display: flex;
+  justify-content: left;
   align-items: center;
+  margin-bottom: 4px;
+}
+
+label{
+  font-weight: bold;
 }
 
 input{  
-  padding:8px;
+  padding: 4px;
+  font-size: 14px;
+  font-weight: 500;
   margin: 0 4px;
+  margin-right: auto;
 }
 
 input[type="checkbox"] {
@@ -26,11 +38,6 @@ input[type="checkbox"] {
   height: 20px;
   accent-color: #d5e8d4;
   border: 1px solid #2e0c3d;
-}
-
-.url{
-  display: flex;
-  margin: 8px 0;
 }
 
 fieldset{
