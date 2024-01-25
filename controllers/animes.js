@@ -1,5 +1,31 @@
-import { Anime } from "../models/anime.js"
+import { Anime } from "../models/anime.js";
 import { Profile } from "../models/profile.js";
+import Jikan from 'jikan4.js'
+
+const client = new Jikan.Client()
+
+async function printSearch (searchString) {
+  const result = (await client.anime.search(searchString, null, null, 1)).map((anime) => {
+    let genreList = []
+    anime.genres.forEach(genre => {genreList.push( genre.name)})
+    let studioList = [];    
+    anime.studios.forEach(studio => {studioList.push(studio.name)})
+    return {
+      title: anime.title.english,
+      year: anime.year,
+      image: anime.image,
+      score: anime.score,
+      genres: genreList,
+      studios: studioList
+    }
+  })
+
+  console.table(result)
+}
+
+function testSearch (req, res){
+  printSearch (req.body.title)
+}
 
 function index (req, res) {
   Anime.find({})
@@ -224,4 +250,5 @@ export {
   createReview,
   deleteReview,
   updateReview,
+  testSearch,
 }

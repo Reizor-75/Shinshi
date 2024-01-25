@@ -15,15 +15,22 @@ body {
   background-color: #f1f0f6;
   color: #2e0c3d;
   /* Use a system font, if none are available use any found sans-sarif font */
-  font-family: system-ui, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 
-    'Helvetica Neue', sans-serif;
+  /* font-family: 'Kanit', sans-serif; */
+  font-family: 'Fjalla One', sans-serif;
+  letter-spacing: 1px;
   margin: 0;
   min-width: 450px;
   min-height: 100vh;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 600;
   display: flex;
   flex-direction: column;
+}
+.background-pigeon{
+  display: flex;
+  justify-content: right;
+  margin: 0 16px;
+  opacity: .5;
 }
 
 a{
@@ -54,11 +61,13 @@ main {
 
 .logo{
   display: flex;
+  align-items: flex-end;
+  font-family: 'Carter One', system-ui;
 }
 
 #mascot{
   height: 50px;
-  margin: 0 4px;
+  padding: 4px;
 }
 
 .title{
@@ -101,7 +110,8 @@ footer{
 .website-title{
   color: #ee8917;
   font-size: 36px;
-  font-weight: 900;
+  font-weight: 800;
+  margin: -8px 0;
 }
 
 .website-links{  
@@ -153,6 +163,8 @@ hr{
   min-width: 400px;
   width: 50%;
   background-color: #d5e8d4;
+  border: none;
+  border-radius: 8px;
   padding:16px;
   color: #2e0c3d;
 }

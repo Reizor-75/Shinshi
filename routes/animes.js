@@ -25,6 +25,8 @@ router.delete('/catalog/:animeId/', isAdmin, animesCtrl.delete)
 // DELETE http://localhost:3000/catalog/:animeId/reviews
 router.delete('/catalog/:animeId/reviews/:reviewId', isLoggedIn, animesCtrl.deleteReview)
 
+router.post('/test', animesCtrl.testSearch)
+
 export {
   router
 }
