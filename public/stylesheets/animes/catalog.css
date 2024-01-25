@@ -43,7 +43,8 @@ a{
 
 .card-body-right{  
   display: flex;
-  font-size: 16px;
+  align-items: flex-end;
+  font-size: 14px;
   font-weight: bold;
 }
 
