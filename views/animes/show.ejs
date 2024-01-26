@@ -104,7 +104,7 @@
             <div>Add Review: <%= anime.title %></div>
             <div class="add-review-inputs">
               <input type="text" name="reviewTitle" placeholder="Headline" class="headline-input">
-              <input type="number" name="rating" class="rating-input">
+              <input type="number" name="rating" class="rating-input" min="1" max="5" placeholder="Rate Me (1-5)">
             </div>
             <textarea name="content" placeholder="Write review here" id="content-textarea"></textarea>
             <div class="bottom-row">
@@ -147,7 +147,7 @@
                       <div>Edit Review: <%= anime.title %></div>
                       <div class="add-review-inputs"> 
                         <input type="text" name="reviewTitle" value="<%= review.reviewTitle %>" class="headline-input">
-                        <input type="number" name="rating" value="<%= review.rating %>" class="rating-input">
+                        <input type="number" name="rating" value="<%= review.rating %>" class="rating-input" min="1" max="5">
                       </div>
                       <textarea name="content" id="content-textarea"><%= review.content%></textarea>
                       <div class="bottom-row">
