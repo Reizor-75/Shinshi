@@ -6,15 +6,19 @@
 
 Read more about shinshi [Here](https://en.wikipedia.org/wiki/Shinshi).
 
-<img src="./public/images/HomeView.png" alt="Shinshi Show view" width="400"/>
+<img src="./public/images/HomeView.png" alt="Shinshi Home view" width="400"/>
 
 At **Shinshi** all guests can see a **Home View** which displays the 10 most recent anime sorted by date of airing. Moving on to the **Catalog View**, guests see all anime listed on the website in alphabetical order. When an Anime is clicked, it will lead to the **Detail View** where guests will see detailed information about the anime as well as users reviews.
 
 
 All users are able to create, edit, and delete reviews on the **Detail View**. Users can also navigate to their own **Watched view** and **Reviews view** when signed in. Users can use these views to track which anime they have watched and what reviews they have left.
 
-
 Admins have the ability to add a new Anime to **Shinshi**. From the **Detail View**, admins can edit and delete an anime.
+
+**Shinshi** is also looks great on Mobile!
+
+<img src="./public/images/Mobile_CatalogView.jpg" alt="Shinshi Mobile Catalog view" width="200"/>
+<img src="./public/images/Mobile_showView.jpg" alt="Shinshi Mobile Show view" width="200"/>
 
 ## Getting Started ✅
 🌐[Take a look as Shinshi here](https://shinshi.fly.dev/) 
@@ -47,7 +51,7 @@ Admins have the ability to add a new Anime to **Shinshi**. From the **Detail Vie
 
 ## Ice Box 🧊
 - [x] Use API to Populate Database
-- [ ] Mobile Responsive
+- [x] Mobile Responsive
 - [ ] Implement Production Studios Model 
 - [ ] Implement Voice Actor Model
 - [ ] Implement Friends Feature to Profiles
