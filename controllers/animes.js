@@ -19,9 +19,8 @@ async function search (req, res){
       airing: anime.airInfo.status
     }
   });
-  console.log(result);
 
-  req.body.title = result[0].title;
+  if (result[0].title) req.body.title = result[0].title;
   req.body.ongoing = result[0].airing;  
   req.body.genres = result[0].genres;
   req.body.releaseYear = new Date().setFullYear(result[0].year);
@@ -41,6 +40,7 @@ async function search (req, res){
 
 function index (req, res) {
   Anime.find({})
+  .sort("ongoing")
   .sort({releaseYear: -1})
   .then(animes =>{
     res.render('index', { 
@@ -56,7 +56,7 @@ function index (req, res) {
 
 function displayCatalog(req, res){
   Anime.find({})
-  .sort({releaseYear: -1})
+  .sort("title")
   .then(animes => {
     res.render("animes/catalog", {
       animes,
