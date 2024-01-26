@@ -42,6 +42,7 @@ p{
   font-size: 32px;
   font-weight: bold;
   margin-bottom: 4px;
+  flex-wrap: wrap;
 }
 
 .anime-rating{  
