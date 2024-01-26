@@ -10,7 +10,6 @@
         <% animes.forEach(anime => { %>
           <a class="text-decoration-none" href="/catalog/<%= anime._id %>">
             <div class="card">
-              <div class="card-body-left">
                 <div class="image-crop">
                   <img 
                     src="<%= anime.imageURL %>" 
@@ -18,23 +17,26 @@
                     class="anime-image"
                   >
                 </div>
-                <div class="card-title"><%= anime.title %></div>
-                <div class="card-release"><%= anime.releaseYear.getFullYear()%> </div>
-              </div>
-              <div class="anime-rating">Rating: 
-                <% if (anime.rating) { %>
-                  <% const average =  Math.round(anime.rating)%>
-                  <% for(let i = 0; i < average; i++ ) { %>
-                    <i class="fa-solid fa-star star-icon lit"></i>
+              <div class="card-body-right">
+                <div class="card-details">
+                  <div class="card-title"><%= anime.title %></div>
+                  <div class="card-release"><%= anime.releaseYear.getFullYear()%> </div>
+                </div>
+                <div class="anime-rating">Rating: 
+                  <% if (anime.rating) { %>
+                    <% const average =  Math.round(anime.rating)%>
+                    <% for(let i = 0; i < average; i++ ) { %>
+                      <i class="fa-solid fa-star star-icon lit"></i>
+                    <% } %>
+                    <% for(let i = 0; i < 5 - average; i++ ) { %>
+                      <i class="fa-solid fa-star star-icon"></i>
+                    <% } %>
+                  <% } else {%>
+                    <% for(let i = 0; i < 5; i++ ) { %>
+                      <i class="fa-solid fa-star star-icon"></i>
+                    <% } %>
                   <% } %>
-                  <% for(let i = 0; i < 5 - average; i++ ) { %>
-                    <i class="fa-solid fa-star star-icon"></i>
-                  <% } %>
-                <% } else {%>
-                  <% for(let i = 0; i < 5; i++ ) { %>
-                    <i class="fa-solid fa-star star-icon"></i>
-                  <% } %>
-                <% } %>
+                </div>
               </div>
             </div>
           </a>

@@ -15,12 +15,12 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  padding: 16px;  
+  flex-direction: wrap;
 }
 
 .image-crop{  
   max-height: 100px; 
-  max-width: 180px;
+  max-width: 25%;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -33,25 +33,19 @@
   width: 100%;
 }
 
-.card-body-left{  
+.card-body-right{  
   display: flex;
-  justify-content: left;
+  justify-content: space-between;
   align-items: flex-end;
   font-size: 16px;
+  width: 75%;
 }
 
-.card-title{
+.card-details{
   font-size: 20px;
   font-weight: bold;
   padding-right: 4px;
   margin: 0 4px;
-}
-
-.card-body-right{  
-  display: flex;
-  align-items: flex-end;
-  font-size: 14px;
-  font-weight: bold;
 }
 
 .card:hover{  
@@ -62,6 +56,7 @@
 .anime-rating{  
   font-size: 16px;
   padding-bottom: 2px;
+  display: flex;
 }
 
 .star-icon{
