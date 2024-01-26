@@ -4,38 +4,43 @@ import Jikan from 'jikan4.js';
 
 const client = new Jikan.Client();
 
-async function search (req, res){
-  const result = (await client.anime.search(req.body.title, null, null, 1)).map((anime) => {
-    let genreList = [];
-    anime.genres.forEach(genre => {genreList.push( genre.name)});
-    let studioList = [];    
-    anime.studios.forEach(studio => {studioList.push(studio.name)});
-    return {
-      title: anime.title.english,
-      year: anime.year,
-      genres: genreList,
-      studios: studioList,
-      synopsis: anime.synopsis,
-      airing: anime.airInfo.status
-    }
-  });
+async function search (req, res){  
+  if(req.user.profile.role > 500){
+    const result = (await client.anime.search(req.body.title, null, null, 1)).map((anime) => {
+      let genreList = [];
+      anime.genres.forEach(genre => {genreList.push( genre.name)});
+      let studioList = [];    
+      anime.studios.forEach(studio => {studioList.push(studio.name)});
+      return {
+        title: anime.title.english,
+        year: anime.year,
+        genres: genreList,
+        studios: studioList,
+        synopsis: anime.synopsis,
+        airing: anime.airInfo.status
+      }
+    });
 
-  if (result[0].title) req.body.title = result[0].title;
-  req.body.ongoing = result[0].airing;  
-  req.body.genres = result[0].genres;
-  req.body.releaseYear = new Date().setFullYear(result[0].year);
-  req.body.studio = result[0].studios;
-  req.body.rating = 0;
-  req.body.synopsis = result[0].synopsis;
+    if (result[0].title) req.body.title = result[0].title;
+    req.body.ongoing = result[0].airing;  
+    req.body.genres = result[0].genres;
+    req.body.releaseYear = new Date().setFullYear(result[0].year);
+    req.body.studio = result[0].studios;
+    req.body.rating = 0;
+    req.body.synopsis = result[0].synopsis;
 
-  Anime.create(req.body)
-  .then(() => {
-    res.redirect(`/catalog`);
-  })
-  .catch(err => {
-    console.log(err);
-    res.redirect('/');
-  });
+    Anime.create(req.body)
+    .then(() => {
+      res.redirect(`/catalog`);
+    })
+    .catch(err => {
+      console.log(err);
+      res.redirect('/');
+    });
+  }
+  else {
+    throw new Error('🚫 Not authorized 🚫');
+  }
 }
 
 function index (req, res) {
@@ -154,19 +159,26 @@ function show(req, res){
 
 //admin
 function update(req, res){
-  if(req.user.profile.role > 500){
-    Anime.findByIdAndUpdate(req.params.animeId, req.body, {new: true})
-    .then(anime =>{    
-      res.redirect(`/catalog/${anime._id}`) ;  
-    })
-    .catch(err => {
-      console.log(err);
-      res.redirect('/');
-    });
-  }
-  else {
-    throw new Error('🚫 Not authorized 🚫');
-  }
+  Profile.findById(req.user.profile._id)
+  .then(profile =>{    
+    if(profile.role> 500){
+      Anime.findByIdAndUpdate(req.params.animeId, req.body, {new: true})
+      .then(anime =>{    
+        res.redirect(`/catalog/${anime._id}`) ;  
+      })
+      .catch(err => {
+        console.log(err);
+        res.redirect('/');
+      });
+    }
+    else {
+      throw new Error('🚫 Not authorized 🚫');
+    }
+  })
+  .catch(err => {
+    console.log(err);
+    res.redirect('/');
+  });
 }
 
 //user
