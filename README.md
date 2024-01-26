@@ -38,14 +38,15 @@ Admins have the ability to add a new Anime to **Shinshi**. From the **Detail Vie
 <img src="./public/images/ShinshiIcon.png" alt="Chubby Pigeon" width="30px"/> **Shinshi's** pigeon mascot is an original design.
 
 ## Technologies used 🖥
-- Node.js
-- Mongoose
-- MongoDB
+![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![Nodemon](https://img.shields.io/badge/NODEMON-%23323330.svg?style=for-the-badge&logo=nodemon&logoColor=%BBDEAD)
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![Gimp Gnu Image Manipulation Program](https://img.shields.io/badge/Gimp-657D8B?style=for-the-badge&logo=gimp&logoColor=FFFFFF)
+
 - Google OAuth
-- JavaScrip
-- EJS
-- CSS
-- Git
 - [Jikan API](https://jikan.moe/)
 
 ## Ice Box 🧊
