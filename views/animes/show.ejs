@@ -31,7 +31,7 @@
       </div>
       <div class="section2">
         <div>Studio: <%= anime.studio %></div>
-        <div><%= anime.ongoing ? 'Ongoing' : 'Completed' %> </div>
+        <div><%= anime.ongoing %> </div>
       </div>
       <div class="section3">Released: <%= anime.releaseYear.getFullYear()%> </div>
       <div class="section4">
@@ -65,36 +65,13 @@
                   <!-- ongoing -->
                   <div class="edit-input">
                     <label for="ongoing-input">Ongoing:</label>
-                    <input type="checkbox" name="ongoing" id="ongoing-input">
+                    <input type="text" name="ongoing" id="ongoing-input" value="<%= anime.ongoing %>">
                   </div>
                   <!-- genre -->
-                  <fieldset>
-                    <legend>Genres</legend>
-                    <div>
-                      <input type="checkbox" id="action-checkbox" name="genres" value="Action" />
-                      <label for="action-checkbox">Action</label>
-                    </div>
-                    <div>
-                      <input type="checkbox" id="comedy-checkbox" name="genres" value="Comedy" />
-                      <label for="comedy-checkbox">Comedy</label>
-                    </div>      
-                    <div>
-                      <input type="checkbox" id="fantasy-checkbox" name="genres" value="Fantasy" />
-                      <label for="fantasy-checkbox">Fantasy</label>
-                    </div>
-                    <div>
-                      <input type="checkbox" id="romance-checkbox" name="genres" value="Romance" />
-                      <label for="romance-checkbox">Romance</label>
-                      <div>
-                        <input type="checkbox" id="Mystery-checkbox" name="genres" value="Mystery" />
-                        <label for="Mystery-checkbox">Mystery</label>
-                      </div>
-                      <div>
-                        <input type="checkbox" id="Coming-Of-Age-checkbox" name="genres" value="Coming Of Age" />
-                        <label for="Coming-Of-Age-checkbox">Coming Of Age</label>
-                      </div>
-                    </div>
-                  </fieldset>
+                  <div class="edit-input">
+                    <label for="ongoing-input">Genre:</label>
+                    <input type="text" name="genres" id="ongoing-input" value="<%= anime.genres %>">
+                  </div>
                 </div>
                 <div class="bottom-row">
                   <button type="submit">Update</button>

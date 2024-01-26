@@ -5,61 +5,19 @@
 <main>
   <div class="add-container">
     <div class="title"><%= title %></div>
-    <form id="new-form" action="/" method="POST">
+    <form id="new-form" action="/findAnime" method="POST">
       <div class="new-form-body">
         <div class="add-inputs"> 
           <!-- title -->
           <div class="add-input">
             <label for="title-input">Title:</label>
-            <input type="text" name="title" id="title-input">
-          </div>
-          <!-- releaseYear -->
-          <div class="add-input">
-            <label for="release-year-input">Release Year:</label>
-            <input type="text" name="releaseYear" id="release-year-input">
+            <input type="text" name="title" id="title-input" placeholder="Search for Anime">
           </div>
           <!-- image url -->
           <div class="add-input">
             <label for="url-input">Image URL:</label>
-            <input type="text" name="imageURL" id="url-input">
+            <input type="text" name="imageURL" id="url-input" placeholder="Please insert anime image in landscape">
           </div>
-          <!-- ongoing -->
-          <div class="add-input">
-            <label for="ongoing-input">Ongoing:</label>
-            <input type="checkbox" name="ongoing" id="ongoing-input">
-          </div>
-          <!-- genre -->
-          <fieldset>
-            <legend>Genres</legend>
-            <div>
-              <input type="checkbox" id="action-checkbox" name="genres" value="Action" />
-              <label for="action-checkbox">Action</label>
-            </div>
-            <div>
-              <input type="checkbox" id="comedy-checkbox" name="genres" value="Comedy" />
-              <label for="comedy-checkbox">Comedy</label>
-            </div>      
-            <div>
-              <input type="checkbox" id="fantasy-checkbox" name="genres" value="Fantasy" />
-              <label for="fantasy-checkbox">Fantasy</label>
-            </div>
-            <div>
-              <input type="checkbox" id="romance-checkbox" name="genres" value="Romance" />
-              <label for="romance-checkbox">Romance</label>
-            </div>
-            <div>
-              <input type="checkbox" id="Sci-Fi-checkbox" name="genres" value="Sci-Fi" />
-              <label for="Sci-Fi-checkbox">Sci-Fi</label>
-            </div>
-            <div>
-              <input type="checkbox" id="Mystery-checkbox" name="genres" value="Mystery" />
-              <label for="Mystery-checkbox">Mystery</label>
-            </div>
-            <div>
-              <input type="checkbox" id="Coming-Of-Age-checkbox" name="genres" value="Coming Of Age" />
-              <label for="Coming-Of-Age-checkbox">Coming Of Age</label>
-            </div>
-          </fieldset>   
         </div> 
         <div class="bottom-row">
           <button type="submit">Add Anime</button>

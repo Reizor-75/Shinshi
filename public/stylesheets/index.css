@@ -5,11 +5,11 @@
 
 .index-container{
   width: 75%;  
+  max-width: 1200px;
   min-width: 450px;
   background-color: #2e0c3d25;
   padding-bottom: 16px;
 }
-
 
 .card-container {
   display: flex;

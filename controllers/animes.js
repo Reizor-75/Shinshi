@@ -4,7 +4,7 @@ import Jikan from 'jikan4.js';
 
 const client = new Jikan.Client();
 
-async function testSearch (req, res){
+async function search (req, res){
   const result = (await client.anime.search(req.body.title, null, null, 1)).map((anime) => {
     let genreList = [];
     anime.genres.forEach(genre => {genreList.push( genre.name)});
@@ -16,48 +16,28 @@ async function testSearch (req, res){
       genres: genreList,
       studios: studioList,
       synopsis: anime.synopsis,
+      airing: anime.airInfo.status
     }
   });
   console.log(result);
 
   req.body.title = result[0].title;
-  req.body.ongoing = !!req.body.ongoing;  
+  req.body.ongoing = result[0].airing;  
   req.body.genres = result[0].genres;
   req.body.releaseYear = new Date().setFullYear(result[0].year);
   req.body.studio = result[0].studios;
   req.body.rating = 0;
   req.body.synopsis = result[0].synopsis;
 
-  console.log(req.body);
-  // Anime.create(req.body)
-  // .then(() => {
-  //   res.redirect(`/catalog`);
-  // })
-  // .catch(err => {
-  //   console.log(err);
-  //   res.redirect('/');
-  // });
-}
-
-//admin
-function newAnimeTest(req, res){
-  Profile.findById(req.user.profile._id)
-  .then(profile =>{    
-    if(profile.role > 500){
-      res.render('animes/new', {
-        title: 'Add New Anime',
-        anime: null
-      });
-    } else{
-      throw new Error ('🚫 Not authorized 🚫');
-    }
+  Anime.create(req.body)
+  .then(() => {
+    res.redirect(`/catalog`);
   })
   .catch(err => {
     console.log(err);
     res.redirect('/');
   });
 }
-
 
 function index (req, res) {
   Anime.find({})
@@ -131,6 +111,7 @@ function deleteAnime(req, res){
 }
 
 //admin
+//No ApI
 function create(req, res){  
   Profile.findById(req.user.profile._id)
   .then(profile =>{    
@@ -174,7 +155,6 @@ function show(req, res){
 //admin
 function update(req, res){
   if(req.user.profile.role > 500){
-    req.body.ongoing = !!req.body.ongoing;
     Anime.findByIdAndUpdate(req.params.animeId, req.body, {new: true})
     .then(anime =>{    
       res.redirect(`/catalog/${anime._id}`) ;  
@@ -314,7 +294,5 @@ export {
   createReview,
   deleteReview,
   updateReview,
-
-  // newAnimeTest as new,
-  // testSearch,
+  search,
 }

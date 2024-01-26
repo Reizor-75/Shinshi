@@ -21,7 +21,7 @@ const animeSchema = new Schema({
     // enum: ['Action', 'Comedy', 'Fantasy', 'Romance', 'Sci-Fi', 'Mystery', 'Coming Of Age'],
   }],
   rating: {type:Number, default: 0 },
-  ongoing: Boolean,
+  ongoing: String,
   reviews: [reviewSchema],
   studio: [String]
     /*Ice box
