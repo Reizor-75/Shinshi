@@ -128,7 +128,10 @@ function deleteReview(req, res){
         const index = profile.animeReviews.indexOf(anime._id);
         profile.animeReviews.splice(index, 1);
         profile.save()
-        .then(()=>{
+        .then(()=>{ 
+          // to calculate average take anime rating multiple by number of reviews 
+          // then sub current review rating, then divide by number of reviews (minus cur review)  
+          anime.rating = ((anime.rating * (anime.reviews.length)) -  parseInt(review.rating) ) / anime.reviews.length - 1;
           anime.reviews.remove(review);
           anime.save()
           .then(()=>{

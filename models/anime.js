@@ -15,17 +15,16 @@ const animeSchema = new Schema({
   title:{ type:String, required: true},
   releaseYear: Date,
   imageURL: String,
+  synopsis: String,
   genres: [{
     type: String,
-    enum: ['Action', 'Comedy', 'Fantasy', 'Romance', 'Sci-Fi', 'Mystery', 'Coming Of Age'],
+    // enum: ['Action', 'Comedy', 'Fantasy', 'Romance', 'Sci-Fi', 'Mystery', 'Coming Of Age'],
   }],
-  rating: Number,
+  rating: {type:Number, default: 0 },
   ongoing: Boolean,
   reviews: [reviewSchema],
-  /*Ice box
-    studio: {
-      type: Schema.Types.ObjectId, ref: ""
-    },
+  studio: [String]
+    /*Ice box
     voiceActors: {
       type: Schema.Types.ObjectId, ref: ""
     },

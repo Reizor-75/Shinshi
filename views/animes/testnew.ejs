@@ -1,0 +1,24 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/animes/new.css">
+<%- include('../partials/nav') %>
+
+<main>
+  <div class="add-container">
+    <div class="title"><%= title %></div>
+    <form id="new-form" action="/test" method="POST" >
+      <!-- title -->
+      <div class="add-input">
+        <label for="title-input">Title:</label>
+        <input type="text" name="title" id="title-input" placeholder="Search by Title">
+      </div>
+      <div class="bottom-row">
+        <button type="submit">Search Anime</button>
+      </div>
+    </form>
+
+    <% if (anime) { %>         
+      <div class="title"><%= anime.title %></div>
+    <% } %>
+  </div>
+</main>
+<%- include('../partials/footer') %>

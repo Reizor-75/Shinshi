@@ -10,10 +10,12 @@
         <% if (animes.length <= i) { break; } %>
           <a class="text-decoration-none" href="/catalog/<%= animes[i]._id %>">
           <div class="card">
-            <img 
-              src="<%= animes[i].imageURL %>" 
-              alt="<%= animes[i].title %>'s cover image"
-            >
+            <div class="tester">
+              <img 
+                src="<%= animes[i].imageURL %>" 
+                alt="<%= animes[i].title %>'s cover image"
+                class="anime-image"
+              ></div>
             <div class="card-body">
               <h1 class="card-title"><%= animes[i].title %></h1>
             </div>
@@ -23,13 +25,6 @@
     </div>
   </div>
 
-  <div class="testarea">
-    <form action="/test"a method="POST">      
-      <label for="title-input">Title:</label>
-      <input type="text" name="title" id="title-input">
-      <button class="delete-button">test area</button>
-    </form>
-  </div>
 </main>
 
 <%- include('./partials/footer') %>

@@ -38,10 +38,11 @@
               <div class="card-body-right">
                 <div class="anime-rating">Rating: 
                   <% if (anime.rating) { %>
-                    <% for(let i = 0; i < anime.rating ; i++ ) { %>
+                    <% const average =  Math.round(anime.rating)%>
+                    <% for(let i = 0; i < average; i++ ) { %>
                       <i class="fa-solid fa-star star-icon lit"></i>
                     <% } %>
-                    <% for(let i = 0; i < 5 - anime.rating ; i++ ) { %>
+                    <% for(let i = 0; i < 5 - average; i++ ) { %>
                       <i class="fa-solid fa-star star-icon"></i>
                     <% } %>
                   <% } else {%>

@@ -10,15 +10,28 @@
   padding-bottom: 150px;
 }
 
+p{
+  font-weight: 500;
+  letter-spacing: normal;
+  color:#000;
+}
 .anime-info{  
-  background-color: #2e0c3d40;
+  background-color: #2e0c3d25;
   padding: 16px;
   line-height: 1.5;
 }
 
-.anime-image{
-  width: 100%;
+.tester{  
+  max-height: 600px; 
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #463c3c;
+}
+
+.anime-image{
+  min-width: 400px;
 }
 
 .title-section{

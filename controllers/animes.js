@@ -4,8 +4,8 @@ import Jikan from 'jikan4.js';
 
 const client = new Jikan.Client();
 
-async function printSearch (searchString) {
-  const result = (await client.anime.search(searchString, null, null, 1)).map((anime) => {
+async function testSearch (req, res){
+  const result = (await client.anime.search(req.body.title, null, null, 1)).map((anime) => {
     let genreList = [];
     anime.genres.forEach(genre => {genreList.push( genre.name)});
     let studioList = [];    
@@ -13,18 +13,51 @@ async function printSearch (searchString) {
     return {
       title: anime.title.english,
       year: anime.year,
-      image: anime.image,
-      score: anime.score,
       genres: genreList,
-      studios: studioList
+      studios: studioList,
+      synopsis: anime.synopsis,
     }
   });
-  console.table(result);
+  console.log(result);
+
+  req.body.title = result[0].title;
+  req.body.ongoing = !!req.body.ongoing;  
+  req.body.genres = result[0].genres;
+  req.body.releaseYear = new Date().setFullYear(result[0].year);
+  req.body.studio = result[0].studios;
+  req.body.rating = 0;
+  req.body.synopsis = result[0].synopsis;
+
+  console.log(req.body);
+  // Anime.create(req.body)
+  // .then(() => {
+  //   res.redirect(`/catalog`);
+  // })
+  // .catch(err => {
+  //   console.log(err);
+  //   res.redirect('/');
+  // });
 }
 
-function testSearch (req, res){
-  printSearch (req.body.title)
+//admin
+function newAnimeTest(req, res){
+  Profile.findById(req.user.profile._id)
+  .then(profile =>{    
+    if(profile.role > 500){
+      res.render('animes/new', {
+        title: 'Add New Anime',
+        anime: null
+      });
+    } else{
+      throw new Error ('🚫 Not authorized 🚫');
+    }
+  })
+  .catch(err => {
+    console.log(err);
+    res.redirect('/');
+  });
 }
+
 
 function index (req, res) {
   Anime.find({})
@@ -102,6 +135,7 @@ function create(req, res){
   Profile.findById(req.user.profile._id)
   .then(profile =>{    
     if(profile.role> 500){
+      req.body.rating = 0;
       req.body.ongoing = !!req.body.ongoing;  
       if(!req.body.releaseYear) req.body.releaseYear = new Date();
       Anime.create(req.body)
@@ -161,8 +195,14 @@ function createReview(req, res){
   .then(anime =>{
     if(!req.body.reviewTitle) req.body.reviewTitle = "";
     if(!req.body.content) req.body.content = "No Comment";
+    if(req.body.rating > 5) req.body.rating = 5;
+    if(req.body.rating < 1) req.body.rating = 1;
     req.body.user = req.user.profile._id;
+
     anime.reviews.push(req.body);
+    // to calculate average take anime rating multiple by number of reviews (before new review)
+    // then add new review rating, then divide by number of reviews (include new)  
+    anime.rating = ((anime.rating * (anime.reviews.length -1)) +  parseInt(req.body.rating) ) / anime.reviews.length;
     anime.save()
     .then(() =>{
       Profile.findById(req.user.profile._id)
@@ -205,6 +245,9 @@ function deleteReview(req, res){
         profile.animeReviews.splice(index, 1);
         profile.save()
         .then(() =>{
+          // to calculate average take anime rating multiple by number of reviews 
+          // then sub current review rating, then divide by number of reviews (minus cur review)  
+          anime.rating = ((anime.rating * (anime.reviews.length)) -  parseInt(review.rating) ) / anime.reviews.length - 1;
           anime.reviews.remove(review);
           anime.save()
           .then(()=>{        
@@ -271,5 +314,7 @@ export {
   createReview,
   deleteReview,
   updateReview,
-  testSearch,
+
+  // newAnimeTest as new,
+  // testSearch,
 }

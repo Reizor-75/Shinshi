@@ -4,20 +4,22 @@
 
 <main> 
   <div class="show-content">
+    <div class="tester">
     <img 
       src="<%= anime.imageURL %>" 
       alt="<%= anime.title %>'s cover image"
       class="anime-image"
-    >
+    ></div>
     <div class="anime-info">
       <div class="title-section">
         <div class="anime-title"><%= anime.title %></div>
         <div class="anime-rating">Rating: 
           <% if (anime.rating) { %>
-            <% for(let i = 0; i < anime.rating ; i++ ) { %>
+            <% const average =  Math.round(anime.rating)%>
+            <% for(let i = 0; i < average; i++ ) { %>
               <i class="fa-solid fa-star star-icon lit"></i>
             <% } %>
-            <% for(let i = 0; i < 5 - anime.rating ; i++ ) { %>
+            <% for(let i = 0; i < 5 - average; i++ ) { %>
               <i class="fa-solid fa-star star-icon"></i>
             <% } %>
           <% } else {%>
@@ -28,7 +30,7 @@
         </div>
       </div>
       <div class="section2">
-        <div>Studio: </div>
+        <div>Studio: <%= anime.studio %></div>
         <div><%= anime.ongoing ? 'Ongoing' : 'Completed' %> </div>
       </div>
       <div class="section3">Released: <%= anime.releaseYear.getFullYear()%> </div>
@@ -106,6 +108,7 @@
           <% } %>
         </div>
       </div>
+      <p><%= anime.synopsis %></p>
     </div>
     <!-- insert cast -->
 
@@ -124,7 +127,7 @@
             <div>Add Review: <%= anime.title %></div>
             <div class="add-review-inputs">
               <input type="text" name="reviewTitle" placeholder="Headline" class="headline-input">
-              <input type="number" name="rating" placeholder="Rating" class="rating-input">
+              <input type="number" name="rating" class="rating-input">
             </div>
             <textarea name="content" placeholder="Write review here" id="content-textarea"></textarea>
             <div class="bottom-row">
