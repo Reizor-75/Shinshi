@@ -17,7 +17,7 @@ Admins have the ability to add a new Anime to **Shinshi**. From the **Detail Vie
 
 **Shinshi** is also looks great on Mobile!
 
-<img src="./public/images/Mobile_CatalogView.jpg" alt="Shinshi Mobile Catalog view" width="200"/><img src="./public/images/Mobile_showView.jpg" alt="Shinshi Mobile Show view" width="200"/>
+<img src="./public/images/Mobile_CatalogView.jpg" alt="Shinshi Mobile Catalog view" width="200"/> <img src="./public/images/Mobile_showView.jpg" alt="Shinshi Mobile Show view" width="200"/>
 
 ## Getting Started ✅
 🌐[Take a look as Shinshi here](https://shinshi.fly.dev/) 
