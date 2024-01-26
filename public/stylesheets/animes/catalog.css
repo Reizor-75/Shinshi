@@ -18,9 +18,19 @@
   padding: 16px;  
 }
 
-.anime-image{
+.image-crop{  
+  max-height: 100px; 
+  max-width: 180px;
+  overflow: hidden;
   display: flex;
-  justify-content: left;
+  justify-content: center;
+  align-items: center;
+  background-color: #463c3c;
+  border-radius: 4px;
+}
+
+.anime-image{
+  width: 100%;
 }
 
 .card-body-left{  

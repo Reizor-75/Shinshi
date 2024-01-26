@@ -23,14 +23,14 @@
   text-decoration: none;
 }
 
-.tester{  
-  max-height: 100%; 
+.image-crop{  
+  max-height: 100px; 
   max-width: 180px;
   overflow: hidden;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  background-color: #000;
+  align-items: center;
+  background-color: #463c3c;
   border-radius: 4px;
 }
 

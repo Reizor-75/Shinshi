@@ -10,12 +10,13 @@
         <% if (animes.length <= i) { break; } %>
           <a class="text-decoration-none" href="/catalog/<%= animes[i]._id %>">
           <div class="card">
-            <div class="tester">
+            <div class="image-crop">
               <img 
                 src="<%= animes[i].imageURL %>" 
                 alt="<%= animes[i].title %>'s cover image"
                 class="anime-image"
-              ></div>
+              >
+            </div>
             <div class="card-body">
               <h1 class="card-title"><%= animes[i].title %></h1>
             </div>

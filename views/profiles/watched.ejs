@@ -26,12 +26,13 @@
           <a class="text-decoration-none" href="/catalog/<%= anime._id %>">
             <div class="card">
               <div class="card-body-left">
-                <img 
-                  src="<%= anime.imageURL %>" 
-                  alt="<%= anime.title %>'s cover image"
-                  width="100px"
-                  class="anime-image"
-                >
+                <div class="image-crop">
+                  <img 
+                    src="<%= anime.imageURL %>" 
+                    alt="<%= anime.title %>'s cover image"
+                    class="anime-image"
+                  >
+                </div>
                 <div class="card-title"><%= anime.title %></div>
                 <div class="card-release"><%= anime.releaseYear.getFullYear()%> </div>
               </div>

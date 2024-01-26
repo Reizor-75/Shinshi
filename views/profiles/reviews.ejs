@@ -11,11 +11,13 @@
       <% profile.animeReviews.forEach(anime => { %>
         <div class="review">
           <% const review = anime.reviews.find(review => { return review.user.equals(profile._id)}) %>
-          <img 
-            src="<%= anime.imageURL %>" 
-            alt="<%= anime.title %>'s cover image"
-            class="anime-image"
-          >
+          <div class="image-crop">
+            <img 
+              src="<%= anime.imageURL %>" 
+              alt="<%= anime.title %>'s cover image"
+              class="anime-image"
+            >
+          </div>
           
           <div class="review-body"> 
             <div class="review-anime-title"><%= anime.title %></div>

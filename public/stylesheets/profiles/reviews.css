@@ -4,10 +4,19 @@
   background-color: #2e0c3d25;
 }
 
+.image-crop{  
+  max-height: 180px; 
+  max-width: 28%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #463c3c;
+  border-radius: 4px;
+}
+
 .anime-image{
-  width: 25%;
-  min-width: 150px;
-  padding-right: 8px;
+  width: 100%;
 }
 
 .review{
@@ -19,7 +28,7 @@
 }
 
 .review-body{
-  width: 75%;
+  width: 70%
 }
 .review-anime-title{  
   font-size: 20px;
