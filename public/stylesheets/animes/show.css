@@ -26,12 +26,12 @@ p{
   overflow: hidden;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   background-color: #463c3c;
 }
 
 .anime-image{
-  min-width: 400px;
+  height: 100%
 }
 
 .title-section{
