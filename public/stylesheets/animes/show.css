@@ -104,12 +104,18 @@ input[type="checkbox"] {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  flex-wrap: wrap;
   width:100%
 }
 
-.review-headline{
+.review-headline{  
+  display: flex;
   font-size: 18px;
   font-weight: bold;
+}
+
+.review-rating{  
+  display: flex;
 }
 
 .review-text{
