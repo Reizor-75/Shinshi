@@ -15,7 +15,7 @@ All users are able to create, edit, and delete reviews on the **Detail View**. U
 
 Admins have the ability to add a new Anime to **Shinshi**. From the **Detail View**, admins can edit and delete an anime.
 
-**Shinshi** is also looks great on Mobile!
+**Shinshi** also looks great on Mobile!
 
 <img src="./public/images/Mobile_CatalogView.jpg" alt="Shinshi Mobile Catalog view" width="200"/> <img src="./public/images/Mobile_showView.jpg" alt="Shinshi Mobile Show view" width="200"/>
 
@@ -38,7 +38,8 @@ Admins have the ability to add a new Anime to **Shinshi**. From the **Detail Vie
 <img src="./public/images/ShinshiIcon.png" alt="Chubby Pigeon" width="30px"/> **Shinshi's** pigeon mascot is an original design.
 
 ## Technologies used 🖥
-![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
+![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)	
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![Nodemon](https://img.shields.io/badge/NODEMON-%23323330.svg?style=for-the-badge&logo=nodemon&logoColor=%BBDEAD)
 ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
@@ -47,6 +48,9 @@ Admins have the ability to add a new Anime to **Shinshi**. From the **Detail Vie
 ![Gimp Gnu Image Manipulation Program](https://img.shields.io/badge/Gimp-657D8B?style=for-the-badge&logo=gimp&logoColor=FFFFFF)
 
 - Google OAuth
+- Mongoose
+-Passport.js
+-Fly.io
 - [Jikan API](https://jikan.moe/)
 
 ## Ice Box 🧊
