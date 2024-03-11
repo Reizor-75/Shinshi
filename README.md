@@ -35,7 +35,7 @@ Admins have the ability to add a new Anime to **Shinshi**. From the **Detail Vie
 
 **Anime Cover Images** are linked from other websites, predominantly Hulu, Crunchyroll, and others.
 
-<img src="./public/images/ShinshiIcon.png" alt="Chubby Pigeon" width="30px"/> **Shinshi's** pigeon mascot is an original design.
+<img src="./public/images/ChubbyPigeonV2.svg" alt="Chubby Pigeon" width="30px" /> **Shinshi's** pigeon mascot is an original design.
 
 ## Technologies used 🖥
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)	
